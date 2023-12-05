@@ -1,15 +1,29 @@
-import { getDate } from 'date-fns';
-import Task from "./Task";
+import {getTime,getYear,getMonth} from 'date-fns';
+
 class CustomDate{
 
     constructor() {
 
     }
 
-     getCurrentDay(){
-        const currentDay = getDate(new Date());
-        console.log(currentDay)
-        console.log("In get date")
+     getCurrentTime(){
+        const date = new Date();
+        return getTime(date);
+    }
+
+    getYear(timestamp){
+        const date = new Date(timestamp);
+        return date.getFullYear()
+    }
+
+    getMonth(timestamp){
+        const date = new Date(timestamp);
+        return date.getMonth() + 1
+    }
+
+    getDay(timestamp){
+        const date = new Date(timestamp);
+        return date.getDay()
     }
 
 
