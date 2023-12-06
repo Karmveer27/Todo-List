@@ -11,7 +11,10 @@ body{
 
 nav{
   background-color: red;
+  display: flex;
+  justify-content: center;
 }
+
 
 main{
   display: flex;
@@ -22,20 +25,25 @@ main{
 footer{
   background-color: chartreuse;
   margin-top: auto;
+  display: flex;
+  justify-content: center;
 }
 
 #sidebar{
   min-width: $sidebar-width; /*This and content width should equal 100vw*/
   background-color: blue;
+  //display: none;
 }
 
 #content{
   min-width: $content-width; /*This and sidebar width should equal 100vw*/
   background-color: chocolate;
   display: flex;
+  flex: 1;
   flex-direction: column;
   //justify-content: center; // If flex direction is set to row, justify-content centres horizotnally and align items does vertically.
-  align-items: center;       // If flex direction is set to column, the axes changes and it becomes inversed
+  align-items: center;
+  // If flex direction is set to column, the axes changes and it becomes inversed
 
 }
 #content-title{
@@ -44,12 +52,18 @@ footer{
   width: 70vw;
   margin-top:30px;
 
+
 }
 
 
 .options{
   display: flex;
 
+
+}
+
+.options:hover{
+  cursor: pointer;
 }
 
 
@@ -62,3 +76,14 @@ footer{
   height: 80px;
   width: 80px;
 }
+
+#home-div{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+#home{
+  margin: 20px;
+
+}
+

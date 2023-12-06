@@ -1,5 +1,6 @@
 import name from "./modules/testing"
 import DateClass from "./modules/services/Date"
+import {showToday, showAllTasks,showSevenDays,showImportant} from "./modules/services/contentHandler"
 import './styles/index.scss'
 
 //Images below
@@ -18,6 +19,12 @@ document.getElementById('logo').src = checkmate;
 document.getElementById('add-project').src = add;
 document.getElementById('important').src = important;
 document.getElementById('home').src = menuEntry;
+
+document.getElementById("all-tasks-button").addEventListener('click',showAllTasks);
+document.getElementById("today-button").addEventListener('click',showToday);
+document.getElementById("7days-button").addEventListener('click',showSevenDays);
+document.getElementById("important-button").addEventListener('click',showImportant);
+
 
 
 
