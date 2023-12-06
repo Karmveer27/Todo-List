@@ -32,4 +32,28 @@ footer{
 #content{
   min-width: $content-width; /*This and sidebar width should equal 100vw*/
   background-color: chocolate;
+  display: flex;
+  justify-content: center; /*Centre Horizontally*/
+  /*align-items: center;*/    /*Centre Vertically*/
+}
+
+.options{
+  display: flex;
+
+}
+
+
+.nav-img{
+  height: 40px;
+  width: 40px;
+}
+
+#logo{
+  height: 80px;
+  width: 80px;
+}
+#content-title{
+  background-color: aqua;
+  height: 100px;
+  width: 70vw;
 }
