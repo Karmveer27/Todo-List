@@ -1,4 +1,4 @@
-import DateClass from './Date' // check import source thingy
+import DateClass from '../services/Date' // check import source thingy
 class Task{
     dateInstance = new DateClass();
     title;

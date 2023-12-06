@@ -1,5 +1,5 @@
 import name from "./modules/testing"
-import DateClass from "./modules/Date"
+import DateClass from "./modules/services/Date"
 import './styles/index.scss'
 
 //Images below
