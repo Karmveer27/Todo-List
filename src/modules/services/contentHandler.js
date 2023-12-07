@@ -29,5 +29,14 @@ function showImportant(){
     document.getElementById("7days-content").style.display = "none";
     document.getElementById("important-content").style.display = "flex";
 }
+let navState = true;
+function toggleOptions(){
 
-export {showImportant,showToday,showAllTasks,showSevenDays}
+    document.getElementById("sidebar").style.display = navState ? "none" : "flex";
+    document.getElementById("home-onclose").style.display = navState ? "flex" : "none ";
+
+
+    navState = !navState
+}
+
+export {showImportant,showToday,showAllTasks,showSevenDays,toggleOptions}

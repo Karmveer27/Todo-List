@@ -1,7 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,900&display=swap');
 /*Varibles*/
 $content-width: 80vw;
 $sidebar-width: 20vw;
+$lightBlue: #0077A8;
+$brightBlue: #00ABE4;
+$green : #3ece57;
+$white: white;
 
+*{
+  font-family: 'Montserrat', sans-serif;
+
+
+
+}
 body{
   display: flex;
   flex-direction: column;
@@ -10,9 +21,11 @@ body{
 }
 
 nav{
-  background-color: red;
+  color: $white;
   display: flex;
   justify-content: center;
+  background-color: $brightBlue;
+  font-size: 25px;
 }
 
 
@@ -23,7 +36,7 @@ main{
 }
 
 footer{
-  background-color: chartreuse;
+  background-color: $brightBlue;
   margin-top: auto;
   display: flex;
   justify-content: center;
@@ -31,13 +44,14 @@ footer{
 
 #sidebar{
   min-width: $sidebar-width; /*This and content width should equal 100vw*/
-  background-color: blue;
+  background-color: $green;
+  color: white;
   //display: none;
 }
 
 #content{
   min-width: $content-width; /*This and sidebar width should equal 100vw*/
-  background-color: chocolate;
+  background-color: $lightBlue;
   display: flex;
   flex: 1;
   flex-direction: column;
@@ -47,12 +61,11 @@ footer{
 
 }
 #content-title{
-  background-color: aqua;
+  background-color: $green;
   height: 100px;
   width: 70vw;
   margin-top:30px;
-
-
+  border-radius: 10px;
 }
 
 
@@ -70,6 +83,7 @@ footer{
 .nav-img{
   height: 40px;
   width: 40px;
+  padding: 10px;
 }
 
 #logo{
@@ -86,4 +100,24 @@ footer{
   margin: 20px;
 
 }
+#home-onclose{
+  display: none;
+}
+
+#mate{
+  color: $green;
+  position: relative;
+  top: 3px;
+}
+#check{
+  position: relative;
+  top: -6px;
+}
+.footer-img{
+  width: 35px;
+  position: relative;
+  padding: 5px;
+  top: 10px;
+}
+
 
