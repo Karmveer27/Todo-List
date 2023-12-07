@@ -32,8 +32,8 @@ function showImportant(){
 let navState = true;
 function toggleOptions(){
 
-    document.getElementById("sidebar").style.display = navState ? "none" : "flex";
-    document.getElementById("home-onclose").style.display = navState ? "flex" : "none ";
+    document.getElementById("sidebar").style.display = navState ? "none" : "block";
+    document.getElementById("home-onclose").style.visibility = navState ? "visible" : "hidden";
 
 
     navState = !navState
