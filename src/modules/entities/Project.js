@@ -1,4 +1,23 @@
-import name from "../testing";
+import Task from "./Task";
 
-const nameStatement = name();
-console.log(nameStatement);
+class Project{
+    name;
+    tasks;
+    constructor(name) {
+        this.name=name;
+        this.tasks = [];
+    }
+    addTask(task){
+        if(task instanceof Task){
+            this.tasks.push(task);
+        }
+    }
+    removeTask(taskToRemove){
+        if(taskToRemove instanceof Task){
+            this.tasks = this.tasks.filter(task => task !== taskToRemove )
+        }
+    }
+
+}
+
+export default Project;

@@ -6,19 +6,32 @@ class Task{
     intialDate;
     dueDate;
     priority;
+    completed = false;
 
     constructor(title, description, dueDate, priority ) {
         this.title = title;
         this.description = title;
-        this.dueDate = dueDate; // Might need to add method in Date class to format this to a date object like we did for getTime
+        this.dueDate = this.formatDueDate(dueDate); // Might need to add method in Date class to format this to a date object like we did for getTime
         this.priority = priority;
 
         this.intialDate = this.dateInstance.getCurrentTime()
 
     }
 
-    formatDateObject(dueDate){
+    formatDueDate(dueDate){
+        const [day, month, year] = dueDate.split('-');
+        const parsedDate = new Date(`${year}-${month}-${day}`);
+        return parsedDate.getTime();
+    }
 
+    getDay(timestamp){
+        return this.dateInstance.getDay(timestamp)
+    }
+    getMonth(timestamp){
+        return this.dateInstance.getMonth(timestamp)
+    }
+    getYear(timestamp){
+        return this.dateInstance.getYear(timestamp)
     }
 
     checkDueDate(){
@@ -29,4 +42,7 @@ class Task{
     }
 
 }
+
+
+export default Task;
 

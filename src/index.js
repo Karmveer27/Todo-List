@@ -1,4 +1,4 @@
-import {showToday, showAllTasks, showSevenDays, showImportant, toggleOptions} from "./modules/services/contentHandler"
+import {showToday, showAllTasks, showSevenDays, showImportant, toggleOptions} from "./modules/services/ContentHandler"
 import './styles/index.scss'
 
 //Images below
@@ -11,6 +11,11 @@ import important from './assets/flag.png'
 import menuEntry from './assets/menu-entry.png'
 import gtihub from './assets/github.png'
 import linkedin from './assets/linkedin.png'
+//Classes
+import Task from './modules/entities/Task'
+import Project from './modules/entities/Project'
+//Methods
+import { loadTasks } from './modules/services/TaskLoader';
 
 
 window.onload = showAllTasks;
@@ -31,6 +36,21 @@ document.getElementById("7days-button").addEventListener('click',showSevenDays);
 document.getElementById("important-button").addEventListener('click',showImportant);
 document.getElementById("home").addEventListener('click',toggleOptions);
 document.getElementById("home-onclose").addEventListener('click',toggleOptions);
+
+
+// Testing for Task
+
+
+const task1 = new Task("Learn react","Next project needs to be with the MERN stack","20-12-2023","Important");
+const task2 = new Task("Finish this Project","Complete CheckMate","19-12-2023","Important");
+console.log(task1)
+console.log(task1.getDay(task1.dueDate))
+const project1 = new Project("AllTasks");
+project1.addTask(task1);
+project1.addTask(task2);
+console.log(project1)
+loadTasks(project1)
+
 
 
 

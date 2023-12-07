@@ -1,4 +1,4 @@
-import {getTime,getYear,getMonth} from 'date-fns';
+import {getTime,getYear,getMonth,getDate} from 'date-fns';
 
 class CustomDate{
 
@@ -23,7 +23,7 @@ class CustomDate{
 
     getDay(timestamp){
         const date = new Date(timestamp);
-        return date.getDay()
+        return date.getDate();
     }
 
 
