@@ -40,3 +40,5 @@ function toggleOptions(){
 }
 
 export {showImportant,showToday,showAllTasks,showSevenDays,toggleOptions}
+
+//Checker Methods for Date

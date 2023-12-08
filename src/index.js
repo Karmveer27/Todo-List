@@ -15,7 +15,7 @@ import linkedin from './assets/linkedin.png'
 import Task from './modules/entities/Task'
 import Project from './modules/entities/Project'
 //Methods
-import { loadTasks } from './modules/services/TaskLoader';
+import { loadAllTasks } from './modules/services/TaskLoader';
 
 
 window.onload = showAllTasks;
@@ -49,7 +49,7 @@ const project1 = new Project("AllTasks");
 project1.addTask(task1);
 project1.addTask(task2);
 console.log(project1)
-loadTasks(project1)
+loadAllTasks(project1)
 
 
 

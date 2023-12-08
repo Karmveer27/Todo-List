@@ -10,7 +10,7 @@ class Task{
 
     constructor(title, description, dueDate, priority ) {
         this.title = title;
-        this.description = title;
+        this.description = description;
         this.dueDate = this.formatDueDate(dueDate); // Might need to add method in Date class to format this to a date object like we did for getTime
         this.priority = priority;
 
