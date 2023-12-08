@@ -5,30 +5,9 @@ import Project from '../entities/Project'
 const date = new Date();
 const allTasksProject = new Project("AllTasks"); // Project that keeps track of all tasks
 function loadAllTasks(){
-    const contentContainer = document.getElementById("all-task-content");
-    contentContainer.innerHTML = '';
-    if(contentContainer){
-        allTasksProject.tasks.forEach(task => {
-            const htmlText =
-                `<div class="task-container"> 
-                    <span class="task-title">${task.title} </span>
-                    <span class="task-description">${task.description}</span>
-                    <span class="task-priority">${task.priority}</span>
-                    <span>
-                        ${task.getDay(task.dueDate)}/${task.getMonth(task.dueDate)}/${task.getYear(task.dueDate)}   
-                    </span>
-                </div>
-                `
-
-            contentContainer.innerHTML += htmlText;
-
-        })
-    }
+    loadTaskContent(allTasksProject,"all-task-content")
 }
 function loadTodayTasks(){
-    const contentContainer = document.getElementById("today-content");
-    contentContainer.innerHTML = '';
-
     const todayProject = new Project("TodayProject");
     const currentTimeStamp = date.getCurrentTime();
     allTasksProject.tasks.forEach(task => {
@@ -37,8 +16,28 @@ function loadTodayTasks(){
         }
     })
     console.log(todayProject)
+    loadTaskContent(todayProject,"today-content")
+}
+function loadSevenDaysTask(){
+    const sevenDayProject = new Project("SevenDays");
+    const currentTimeStamp = date.getCurrentTime();
+    const nextSevenDayStamp = date.addDays(currentTimeStamp,7);
+
+    allTasksProject.tasks.forEach(task => {
+        if(date.compareDates(nextSevenDayStamp,task.dueDate) === 1){
+            sevenDayProject.addTask(task)
+        }
+    })
+    loadTaskContent(sevenDayProject,"seven-days-content")
+
+
+}
+
+function loadTaskContent(project,containerID){
+    const contentContainer = document.getElementById(containerID);
+    contentContainer.innerHTML = '';
     if(contentContainer){
-        todayProject.tasks.forEach(task => {
+        project.tasks.forEach(task => {
             const htmlText =
                 `<div class="task-container"> 
                     <span class="task-title">${task.title} </span>
@@ -49,13 +48,10 @@ function loadTodayTasks(){
                     </span>
                 </div>
                 `
-
             contentContainer.innerHTML += htmlText;
-
         })
     }
 }
-
 
 function isSameDay(timestamp1, timestamp2){
     const day1 = date.getDay(timestamp1);
@@ -75,10 +71,12 @@ function isSameDay(timestamp1, timestamp2){
 //Testing
 const task1 = new Task("Learn react","Next project needs to be with the MERN stack","20-12-2023","Important");
 const task2 = new Task("Finish this Project","Complete CheckMate","09-12-2023","Important");
+const task3 = new Task("Sleep More","Focus on 8 hours a sleep within the next week","14-12-2023","Medium");
 
 allTasksProject.addTask(task1);
 allTasksProject.addTask(task2);
+allTasksProject.addTask(task3);
 console.log(allTasksProject)
 
 
-export {loadAllTasks,loadTodayTasks}
+export {loadAllTasks,loadTodayTasks,loadSevenDaysTask}

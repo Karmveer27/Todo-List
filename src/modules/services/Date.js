@@ -1,4 +1,4 @@
-import {getTime,getYear,getMonth,getDate} from 'date-fns';
+import {getTime,getYear,getMonth,getDate,compareAsc,addDays} from 'date-fns';
 
 class CustomDate{
 
@@ -24,6 +24,14 @@ class CustomDate{
     getDay(timestamp){
         const date = new Date(timestamp);
         return date.getDate();
+    }
+    addDays(timestamp,days){
+        const date = new Date(timestamp);
+        return addDays(date,days)
+    }
+
+    compareDates(timestamp1,timestamp2){
+        return compareAsc(new Date(timestamp1),new Date(timestamp2))
     }
 
 
