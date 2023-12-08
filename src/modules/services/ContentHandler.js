@@ -1,9 +1,11 @@
+import {loadAllTasks,loadTodayTasks} from './TaskLoader'
 function showAllTasks(){
     document.getElementById("current-title").innerText = "All Tasks";
     document.getElementById("all-task-content").style.display = "flex";
     document.getElementById("today-content").style.display = "none";
     document.getElementById("7days-content").style.display = "none";
     document.getElementById("important-content").style.display = "none";
+    loadAllTasks();
 }
 
 function showToday(){
@@ -12,6 +14,7 @@ function showToday(){
     document.getElementById("today-content").style.display = "flex";
     document.getElementById("7days-content").style.display = "none";
     document.getElementById("important-content").style.display = "none";
+    loadTodayTasks();
 }
 
 function showSevenDays(){

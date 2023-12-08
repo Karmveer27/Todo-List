@@ -6,6 +6,7 @@ class Task{
     intialDate;
     dueDate;
     priority;
+    parentProject;
     completed = false;
 
     constructor(title, description, dueDate, priority ) {
@@ -39,6 +40,10 @@ class Task{
         const currentTime = this.dateInstance.getCurrentTime();
         // Compare with this.dueDate
 
+    }
+
+    setParentProject(project){
+        this.parentProject = project
     }
 
 }

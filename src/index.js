@@ -15,7 +15,7 @@ import linkedin from './assets/linkedin.png'
 import Task from './modules/entities/Task'
 import Project from './modules/entities/Project'
 //Methods
-import { loadAllTasks } from './modules/services/TaskLoader';
+import { loadAllTasks,isSameDay } from './modules/services/TaskLoader';
 
 
 window.onload = showAllTasks;
@@ -43,13 +43,9 @@ document.getElementById("home-onclose").addEventListener('click',toggleOptions);
 
 const task1 = new Task("Learn react","Next project needs to be with the MERN stack","20-12-2023","Important");
 const task2 = new Task("Finish this Project","Complete CheckMate","19-12-2023","Important");
-console.log(task1)
-console.log(task1.getDay(task1.dueDate))
-const project1 = new Project("AllTasks");
-project1.addTask(task1);
-project1.addTask(task2);
-console.log(project1)
-loadAllTasks(project1)
+//console.log(task1)
+//console.log(task1.getDay(task1.dueDate))
+
 
 
 
