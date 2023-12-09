@@ -29,7 +29,15 @@ function loadSevenDaysTask(){
         }
     })
     loadTaskContent(sevenDayProject,"seven-days-content")
-
+}
+function loadImportantTasks(){
+    const importantTasks = new Project("ImportantTasks");
+    allTasksProject.tasks.forEach(task => {
+         if(task.priority === "important"){
+             importantTasks.addTask(task)
+         }
+    })
+    loadTaskContent(importantTasks,"important-content");
 
 }
 
@@ -69,9 +77,9 @@ function isSameDay(timestamp1, timestamp2){
 
 
 //Testing
-const task1 = new Task("Learn react","Next project needs to be with the MERN stack","20-12-2023","Important");
-const task2 = new Task("Finish this Project","Complete CheckMate","09-12-2023","Important");
-const task3 = new Task("Sleep More","Focus on 8 hours a sleep within the next week","14-12-2023","Medium");
+const task1 = new Task("Learn react","Next project needs to be with the MERN stack","20-12-2023","important");
+const task2 = new Task("Finish this Project","Complete CheckMate","09-12-2023","important");
+const task3 = new Task("Sleep More","Focus on 8 hours a sleep within the next week","14-12-2023","medium");
 
 allTasksProject.addTask(task1);
 allTasksProject.addTask(task2);
@@ -79,4 +87,4 @@ allTasksProject.addTask(task3);
 console.log(allTasksProject)
 
 
-export {loadAllTasks,loadTodayTasks,loadSevenDaysTask}
+export {loadAllTasks,loadTodayTasks,loadSevenDaysTask,loadImportantTasks}

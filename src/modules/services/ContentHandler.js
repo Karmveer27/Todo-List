@@ -1,4 +1,4 @@
-import {loadAllTasks,loadTodayTasks,loadSevenDaysTask} from './TaskLoader'
+import {loadAllTasks,loadTodayTasks,loadSevenDaysTask,loadImportantTasks} from './TaskLoader'
 function showAllTasks(){
     document.getElementById("current-title").innerText = "All Tasks";
     document.getElementById("all-task-content").style.display = "flex";
@@ -32,6 +32,7 @@ function showImportant(){
     document.getElementById("today-content").style.display = "none";
     document.getElementById("seven-days-content").style.display = "none";
     document.getElementById("important-content").style.display = "flex";
+    loadImportantTasks();
 }
 let navState = true;
 function toggleOptions(){

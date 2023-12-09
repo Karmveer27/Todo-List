@@ -10,6 +10,7 @@ class Project{
     addTask(task){
         if(task instanceof Task){
             this.tasks.push(task);
+            task.setParentProject(this);
         }
     }
     removeTask(taskToRemove){

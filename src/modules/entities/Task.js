@@ -6,7 +6,7 @@ class Task{
     intialDate;
     dueDate;
     priority;
-    parentProject;
+    parentProjects;
     completed = false;
 
     constructor(title, description, dueDate, priority ) {
@@ -14,8 +14,8 @@ class Task{
         this.description = description;
         this.dueDate = this.formatDueDate(dueDate); // Might need to add method in Date class to format this to a date object like we did for getTime
         this.priority = priority;
-
         this.intialDate = this.dateInstance.getCurrentTime()
+        this.parentProjects = [];
 
     }
 
@@ -43,7 +43,7 @@ class Task{
     }
 
     setParentProject(project){
-        this.parentProject = project
+        this.parentProjects.push(project)
     }
 
 }
