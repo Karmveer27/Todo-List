@@ -140,4 +140,22 @@ footer{
   min-width: 400px;
 }
 
+#add-task{
+  display: flex;
+  flex-direction: column;
+}
+
+#formDescription{
+  height: 100px;
+  display: flex;
+  font-size: 10px;
+  text-align: left;
+  vertical-align: top;
+
+}
+#formDescription{
+  text-align: left;
+
+}
+
 

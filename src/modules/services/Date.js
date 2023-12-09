@@ -1,4 +1,4 @@
-import {getTime,getYear,getMonth,getDate,compareAsc,addDays} from 'date-fns';
+import {addDays, compareAsc, format, getTime} from 'date-fns';
 
 class CustomDate{
 
@@ -32,6 +32,11 @@ class CustomDate{
 
     compareDates(timestamp1,timestamp2){
         return compareAsc(new Date(timestamp1),new Date(timestamp2))
+    }
+
+    getFormattedDate(timestamp){
+        const currentDate = new Date(timestamp);
+        return format(currentDate, 'yyyy-MM-dd');
     }
 
 

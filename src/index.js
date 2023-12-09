@@ -1,4 +1,5 @@
 import {showToday, showAllTasks, showSevenDays, showImportant, toggleOptions} from "./modules/services/ContentHandler"
+
 import './styles/index.scss'
 
 //Images below
@@ -19,6 +20,8 @@ import { loadAllTasks,isSameDay } from './modules/services/TaskLoader';
 
 
 window.onload = showAllTasks;
+
+
 document.getElementById('inbox').src = inbox;
 document.getElementById('7days').src = sevenDays;
 document.getElementById('today').src = today;
@@ -36,16 +39,6 @@ document.getElementById("7days-button").addEventListener('click',showSevenDays);
 document.getElementById("important-button").addEventListener('click',showImportant);
 document.getElementById("home").addEventListener('click',toggleOptions);
 document.getElementById("home-onclose").addEventListener('click',toggleOptions);
-
-
-// Testing for Task
-
-
-const task1 = new Task("Learn react","Next project needs to be with the MERN stack","20-12-2023","Important");
-const task2 = new Task("Finish this Project","Complete CheckMate","19-12-2023","Important");
-//console.log(task1)
-//console.log(task1.getDay(task1.dueDate))
-
 
 
 

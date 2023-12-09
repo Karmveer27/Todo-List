@@ -1,4 +1,7 @@
-import {loadAllTasks,loadTodayTasks,loadSevenDaysTask,loadImportantTasks} from './TaskLoader'
+import {loadAllTasks,loadTodayTasks,loadSevenDaysTask,loadImportantTasks,addTask} from './TaskLoader'
+import Task from "../entities/Task";
+
+let currentPage;
 function showAllTasks(){
     document.getElementById("current-title").innerText = "All Tasks";
     document.getElementById("all-task-content").style.display = "flex";
@@ -6,6 +9,7 @@ function showAllTasks(){
     document.getElementById("seven-days-content").style.display = "none";
     document.getElementById("important-content").style.display = "none";
     loadAllTasks();
+    currentPage = "AllTasks"
 }
 
 function showToday(){
@@ -15,6 +19,7 @@ function showToday(){
     document.getElementById("seven-days-content").style.display = "none";
     document.getElementById("important-content").style.display = "none";
     loadTodayTasks();
+    currentPage = "Today"
 }
 
 function showSevenDays(){
@@ -24,6 +29,7 @@ function showSevenDays(){
     document.getElementById("seven-days-content").style.display = "flex";
     document.getElementById("important-content").style.display = "none";
     loadSevenDaysTask()
+    currentPage = "SevenDays"
 }
 
 function showImportant(){
@@ -33,6 +39,7 @@ function showImportant(){
     document.getElementById("seven-days-content").style.display = "none";
     document.getElementById("important-content").style.display = "flex";
     loadImportantTasks();
+    currentPage = "Important"
 }
 let navState = true;
 function toggleOptions(){
@@ -43,6 +50,33 @@ function toggleOptions(){
 
     navState = !navState
 }
+
+document.getElementById("formButton").addEventListener('click',function(e){
+    const formTitle = document.querySelector("#formTitle").value;
+    const formDescription = document.querySelector("#formDescription").value;
+    const formDate = document.querySelector("#formDate").value;
+    const formPriority = document.querySelector("#formPriority").value;
+    const task1 = new Task(formTitle,formDescription,formDate,formPriority);
+    addTask(task1);
+
+    switch (currentPage){
+        case "AllTasks":
+            loadAllTasks()
+            break;
+        case "Today":
+            loadTodayTasks()
+            break;
+        case "SevenDays":
+            loadSevenDaysTask()
+            break;
+        case "Important":
+            loadImportantTasks();
+            break;
+
+    }
+
+
+})
 
 export {showImportant,showToday,showAllTasks,showSevenDays,toggleOptions}
 

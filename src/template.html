@@ -5,9 +5,7 @@
     <title>Title</title>
 </head>
 <body>
-<!--<label for="myDate">Select a date:</label>
-<input type="date" id="myDate" name="myDate">
-<button id="dateButton">Click Me</button>-->
+
 
     <nav>
         <span class="options">
@@ -68,6 +66,26 @@
 
             <div id="important-content">
                 <h1>Important</h1>
+            </div>
+
+            <div id="add-task">
+                <h1>Add Task</h1>
+                <input type="text" id="formTitle" placeholder="Enter a title" />
+                <input type="text" id="formDescription" placeholder="Describe your task" />
+
+                <div>
+                    <label for="formDate"></label>
+                    <input type="date" id="formDate" name="formDate" >
+
+                    <select id="formPriority" name="cars" >
+                        <option value="important">Important</option>
+                        <option value="standard">Standard</option>
+                        <option value="minor" selected>Minor</option>
+                    </select>
+                </div>
+
+
+                <button id="formButton">Click Me</button>
             </div>
 
 

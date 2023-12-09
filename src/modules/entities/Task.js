@@ -20,7 +20,7 @@ class Task{
     }
 
     formatDueDate(dueDate){
-        const [day, month, year] = dueDate.split('-');
+        const [year, month, day] = dueDate.split('-');
         const parsedDate = new Date(`${year}-${month}-${day}`);
         return parsedDate.getTime();
     }

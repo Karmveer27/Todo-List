@@ -6,6 +6,10 @@ const date = new Date();
 const allTasksProject = new Project("AllTasks"); // Project that keeps track of all tasks
 function loadAllTasks(){
     loadTaskContent(allTasksProject,"all-task-content")
+
+    const tomorrowDate = date.addDays(date.getCurrentTime(),1);
+    document.getElementById("formDate").value = date.getFormattedDate(tomorrowDate);
+
 }
 function loadTodayTasks(){
     const todayProject = new Project("TodayProject");
@@ -75,11 +79,16 @@ function isSameDay(timestamp1, timestamp2){
     )
 }
 
+function addTask(task){
+    if(task instanceof Task){
+        allTasksProject.addTask(task);
+    }
+}
 
 //Testing
-const task1 = new Task("Learn react","Next project needs to be with the MERN stack","20-12-2023","important");
-const task2 = new Task("Finish this Project","Complete CheckMate","09-12-2023","important");
-const task3 = new Task("Sleep More","Focus on 8 hours a sleep within the next week","14-12-2023","medium");
+const task1 = new Task("Learn react","Next project needs to be with the MERN stack","2023-12-19","important");
+const task2 = new Task("Finish this Project","Complete CheckMate","2023-12-09","important");
+const task3 = new Task("Sleep More","Focus on 8 hours a sleep within the next week","2023-12-14","medium");
 
 allTasksProject.addTask(task1);
 allTasksProject.addTask(task2);
@@ -87,4 +96,4 @@ allTasksProject.addTask(task3);
 console.log(allTasksProject)
 
 
-export {loadAllTasks,loadTodayTasks,loadSevenDaysTask,loadImportantTasks}
+export {loadAllTasks,loadTodayTasks,loadSevenDaysTask,loadImportantTasks,addTask}
