@@ -40,7 +40,7 @@
             <br>
             <h1>Projects</h1>
             <hr>
-            <span class="options">
+            <span class="options" id="add-project-button">
                 <img class="nav-img" id="add-project">
                 <h3>New Project</h3>
             </span>
@@ -88,9 +88,31 @@
                 <button id="formButton">Click Me</button>
             </div>
 
+            <div id="new-project">
+                <h2>Add project</h2>
+                <form id="projectForm">
+                    <label for="projectName">Name</label>
+                    <input type="text" name="projectName" id="projectName" placeholder="Enter a name"/>
 
+                    <label for="colorSelect">Colour:</label>
+                    <select id="colorSelect" name="colorSelect">
+                        <option value="white">White</option>
+                        <option value="black">Black</option>
+                        <option value="red">Red</option>
+                        <option value="blue">Blue</option>
+                        <option value="green">Green</option>
+                        <option value="yellow">Yellow</option>
+                        <option value="orange">Orange</option>
+                        <option value="purple">Purple</option>
+                        <option value="grey">Grey</option>
+                    </select>
+
+                    <button id="projectButton">Add</button>
+                </form>
+            </div>
         </div>
-    </main>
+
+           </main>
 
     <footer>
         <h2>

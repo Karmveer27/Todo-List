@@ -158,4 +158,26 @@ footer{
 
 }
 
+#new-project{
+  position: absolute;
+  background-color:rosybrown ;
+  margin: 20px;
+  top: 30%;
+  left: 45%;
+  width: 500px;
+  height: 400px;
+  display: none;
+  flex-direction: column;
+}
+
+#projectForm{
+  display: flex;
+  flex-direction: column;
+}
+#projectButton{
+  width: 100px;
+  align-self: center;
+  margin-top: 30px;
+}
+
 

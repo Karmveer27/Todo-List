@@ -78,6 +78,19 @@ document.getElementById("formButton").addEventListener('click',function(e){
 
 })
 
-export {showImportant,showToday,showAllTasks,showSevenDays,toggleOptions}
+let projectPromptOpened = false;
+function projectOnClick(){
+    projectPromptOpened ? document.getElementById("new-project").style.display = 'none' : document.getElementById("new-project").style.display = 'flex';
+    projectPromptOpened = !projectPromptOpened
+}
+document.getElementById("projectButton").addEventListener('click', (e) => {
+    e.preventDefault();
+    const projectTitle = document.querySelector("#projectName").value;
+    const colour = document.querySelector("#colorSelect").value;
+    console.log(projectTitle, colour)
+});
+
+
+export {showImportant,showToday,showAllTasks,showSevenDays,toggleOptions, projectOnClick}
 
 //Checker Methods for Date

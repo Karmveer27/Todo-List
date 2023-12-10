@@ -1,4 +1,11 @@
-import {showToday, showAllTasks, showSevenDays, showImportant, toggleOptions} from "./modules/services/ContentHandler"
+import {
+    showToday,
+    showAllTasks,
+    showSevenDays,
+    showImportant,
+    toggleOptions,
+    projectOnClick
+} from "./modules/services/ContentHandler"
 
 import './styles/index.scss'
 
@@ -39,6 +46,7 @@ document.getElementById("7days-button").addEventListener('click',showSevenDays);
 document.getElementById("important-button").addEventListener('click',showImportant);
 document.getElementById("home").addEventListener('click',toggleOptions);
 document.getElementById("home-onclose").addEventListener('click',toggleOptions);
+document.getElementById("add-project-button").addEventListener('click',projectOnClick);
 
 
 
