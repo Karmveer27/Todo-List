@@ -1,6 +1,9 @@
 import Date from './Date'
 import Task from '../entities/Task'
 import Project from '../entities/Project'
+import {getProject} from "./ProjectLoader";
+import {showCustom} from "./ContentHandler";
+
 
 const date = new Date();
 const allTasksProject = new Project("AllTasks"); // Project that keeps track of all tasks
@@ -48,7 +51,7 @@ function loadImportantTasks(){
 function loadTaskContent(project,containerID){
     const contentContainer = document.getElementById(containerID);
     contentContainer.innerHTML = '';
-    if(contentContainer){
+    if(contentContainer && project.tasks !== undefined){
         project.tasks.forEach(task => {
             const htmlText =
                 `<div class="task-container"> 
@@ -64,6 +67,16 @@ function loadTaskContent(project,containerID){
         })
     }
 }
+function loadCustomProjectTasks(projectName){
+    const project = getProject(projectName);
+    const htmlDiv = `<div id=${project.name} ></div>`;
+    const customContainer = document.getElementById("custom-content");
+    customContainer.innerHTML = '';
+    customContainer.innerHTML += htmlDiv;
+    loadTaskContent(project,project.name)
+    showCustom(projectName);
+}
+
 
 function isSameDay(timestamp1, timestamp2){
     const day1 = date.getDay(timestamp1);
@@ -96,4 +109,4 @@ allTasksProject.addTask(task3);
 console.log(allTasksProject)
 
 
-export {loadAllTasks,loadTodayTasks,loadSevenDaysTask,loadImportantTasks,addTask}
+export {loadAllTasks,loadTodayTasks,loadSevenDaysTask,loadImportantTasks,addTask,loadCustomProjectTasks}

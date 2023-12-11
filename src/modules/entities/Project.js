@@ -3,9 +3,17 @@ import Task from "./Task";
 class Project{
     name;
     tasks;
+    colour;
     constructor(name) {
         this.name=name;
         this.tasks = [];
+        this.colour = 'black'
+    }
+    static constructorWithColour(name,colour) {
+        const projectTemp = new Project(name);
+        projectTemp.tasks = [];
+        projectTemp.colour = colour;
+        return projectTemp;
     }
     addTask(task){
         if(task instanceof Task){

@@ -6,6 +6,9 @@ import {
     toggleOptions,
     projectOnClick
 } from "./modules/services/ContentHandler"
+import {
+    loadProjects
+} from "./modules/services/ProjectLoader";
 
 import './styles/index.scss'
 
@@ -26,7 +29,11 @@ import Project from './modules/entities/Project'
 import { loadAllTasks,isSameDay } from './modules/services/TaskLoader';
 
 
-window.onload = showAllTasks;
+window.onload = () => {
+    showAllTasks();
+    loadProjects();
+
+}
 
 
 document.getElementById('inbox').src = inbox;

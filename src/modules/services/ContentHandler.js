@@ -1,5 +1,6 @@
-import {loadAllTasks,loadTodayTasks,loadSevenDaysTask,loadImportantTasks,addTask} from './TaskLoader'
+import {loadAllTasks,loadTodayTasks,loadSevenDaysTask,loadImportantTasks,addTask,loadCustomProjectTasks} from './TaskLoader'
 import Task from "../entities/Task";
+import {addProject} from './ProjectLoader'
 
 let currentPage;
 function showAllTasks(){
@@ -41,6 +42,16 @@ function showImportant(){
     loadImportantTasks();
     currentPage = "Important"
 }
+function showCustom(name){
+    document.getElementById("current-title").innerText = name;
+    document.getElementById("all-task-content").style.display = "none";
+    document.getElementById("today-content").style.display = "none";
+    document.getElementById("seven-days-content").style.display = "none";
+    document.getElementById("important-content").style.display = "none";
+    document.getElementById("custom-content").style.display = "flex";
+    currentPage = "Custom"
+}
+
 let navState = true;
 function toggleOptions(){
 
@@ -86,11 +97,23 @@ function projectOnClick(){
 document.getElementById("projectButton").addEventListener('click', (e) => {
     e.preventDefault();
     const projectTitle = document.querySelector("#projectName").value;
-    const colour = document.querySelector("#colorSelect").value;
-    console.log(projectTitle, colour)
+    const colour = document.querySelector("#colorSelect").value.toLowerCase();
+    //console.log(projectTitle, colour)
+    addProject(projectTitle,colour);
+    customProjectButtons()
 });
+function customProjectButtons(){
+    const projects = document.querySelectorAll(".customProjects");
+    projects.forEach(project => {
+        project.addEventListener('click',(e) =>{
+            console.log(e.target.id);
+            loadCustomProjectTasks(e.target.id)
+
+        })
+    })
+}
 
 
-export {showImportant,showToday,showAllTasks,showSevenDays,toggleOptions, projectOnClick}
+export {showImportant,showToday,showAllTasks,showSevenDays,toggleOptions, projectOnClick,showCustom}
 
 //Checker Methods for Date
