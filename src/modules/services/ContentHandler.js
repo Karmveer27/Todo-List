@@ -95,7 +95,7 @@ document.getElementById("formButton").addEventListener('click',function(e){
             loadImportantTasks();
             break;
         case "Custom":
-            //loadCustomProjectTasks(project.name)
+            loadCustomProjectTasks(formProject)
             break;
 
     }
@@ -125,7 +125,7 @@ function customProjectButtons(){
             if(!project){
                 return;
             }
-            console.log(e.target.id);
+            //console.log(e.target.id);
             loadCustomProjectTasks(e.target.id)
 
         })
