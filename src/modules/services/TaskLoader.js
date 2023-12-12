@@ -1,7 +1,7 @@
 import Date from './Date'
 import Task from '../entities/Task'
 import Project from '../entities/Project'
-import {getProject} from "./ProjectLoader";
+import {getAllProjects, getProject} from "./ProjectLoader";
 import {showCustom} from "./ContentHandler";
 
 
@@ -68,12 +68,21 @@ function loadTaskContent(project,containerID){
     }
 }
 function loadCustomProjectTasks(projectName){
-    const project = getProject(projectName);
-    const htmlDiv = `<div id=${project.name} ></div>`;
+
+    const htmlDiv = `<div id=${projectName} ></div>`;
     const customContainer = document.getElementById("custom-content");
     customContainer.innerHTML = '';
     customContainer.innerHTML += htmlDiv;
-    loadTaskContent(project,project.name)
+
+    const allProjects = getAllProjects()
+    let project1;
+    allProjects.forEach(project => {
+        if(project.name === projectName){
+            project1 = project;
+            console.log(project1)
+        }
+    })
+    loadTaskContent(project1,"custom-content")
     showCustom(projectName);
 }
 

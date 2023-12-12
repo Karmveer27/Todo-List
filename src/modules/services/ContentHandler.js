@@ -1,6 +1,6 @@
 import {loadAllTasks,loadTodayTasks,loadSevenDaysTask,loadImportantTasks,addTask,loadCustomProjectTasks} from './TaskLoader'
 import Task from "../entities/Task";
-import {addProject} from './ProjectLoader'
+import {addProject, getAllProjects} from './ProjectLoader'
 
 let currentPage;
 function showAllTasks(){
@@ -67,7 +67,18 @@ document.getElementById("formButton").addEventListener('click',function(e){
     const formDescription = document.querySelector("#formDescription").value;
     const formDate = document.querySelector("#formDate").value;
     const formPriority = document.querySelector("#formPriority").value;
+    const formProject = document.querySelector("#formProject").value;
     const task1 = new Task(formTitle,formDescription,formDate,formPriority);
+    console.log("Getting Project")
+    console.log(formProject)
+    const allProjects =  getAllProjects();
+    allProjects.forEach(project => {
+        if(project.name === formProject){
+            project.addTask(task1)
+            console.log(project)
+        }
+    })
+
     addTask(task1);
 
     switch (currentPage){
@@ -82,6 +93,9 @@ document.getElementById("formButton").addEventListener('click',function(e){
             break;
         case "Important":
             loadImportantTasks();
+            break;
+        case "Custom":
+            //loadCustomProjectTasks(project.name)
             break;
 
     }
@@ -101,6 +115,7 @@ document.getElementById("projectButton").addEventListener('click', (e) => {
     //console.log(projectTitle, colour)
     addProject(projectTitle,colour);
     customProjectButtons()
+
 });
 function customProjectButtons(){
     const projects = document.querySelectorAll(".customProjects");
@@ -116,4 +131,5 @@ function customProjectButtons(){
 
 export {showImportant,showToday,showAllTasks,showSevenDays,toggleOptions, projectOnClick,showCustom}
 
-//Checker Methods for Date
+
+//getAllProjects()[0].addTask(new Task("Learn react","Next project needs to be with the MERN stack","2023-12-19","important"))

@@ -5,6 +5,9 @@ function addProject(name,colour){
     const newProject = Project.constructorWithColour(name,colour);
     allProjects.push(newProject);
     loadProjects()
+
+    const htmlDiv = `<option value=${name}>${name}</option>`;
+    document.getElementById("formProject").innerHTML += htmlDiv;
 }
 function loadProjects(){
     const projectContainer = document.getElementById("projectContainer");
@@ -15,9 +18,13 @@ function loadProjects(){
     })
 
 }
-
+function getAllProjects(){
+    return allProjects;
+}
 function getProject(projectName){
     return allProjects.filter(project => project.name === projectName)
 }
-export {loadProjects,addProject,getProject}
+
+
+export {loadProjects,addProject,getProject,getAllProjects}
 
