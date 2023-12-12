@@ -2,7 +2,7 @@ import Task from "./Task";
 
 class Project{
     name;
-    tasks;
+    tasks = [];
     colour;
     constructor(name) {
         this.name=name;

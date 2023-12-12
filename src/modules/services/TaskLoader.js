@@ -50,8 +50,8 @@ function loadImportantTasks(){
 
 function loadTaskContent(project,containerID){
     const contentContainer = document.getElementById(containerID);
-    contentContainer.innerHTML = '';
     if(contentContainer && project.tasks !== undefined){
+        contentContainer.innerHTML = '';
         project.tasks.forEach(task => {
             const htmlText =
                 `<div class="task-container"> 
@@ -82,8 +82,10 @@ function loadCustomProjectTasks(projectName){
             console.log(project1)
         }
     })
-    loadTaskContent(project1,"custom-content")
-    showCustom(projectName);
+    if(project1){
+        loadTaskContent(project1,"custom-content")
+        showCustom(projectName);
+    }
 }
 
 

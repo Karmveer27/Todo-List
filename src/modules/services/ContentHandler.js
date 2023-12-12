@@ -109,6 +109,7 @@ function projectOnClick(){
     projectPromptOpened = !projectPromptOpened
 }
 document.getElementById("projectButton").addEventListener('click', (e) => {
+
     e.preventDefault();
     const projectTitle = document.querySelector("#projectName").value;
     const colour = document.querySelector("#colorSelect").value.toLowerCase();
@@ -121,6 +122,9 @@ function customProjectButtons(){
     const projects = document.querySelectorAll(".customProjects");
     projects.forEach(project => {
         project.addEventListener('click',(e) =>{
+            if(!project){
+                return;
+            }
             console.log(e.target.id);
             loadCustomProjectTasks(e.target.id)
 
