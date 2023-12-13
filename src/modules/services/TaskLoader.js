@@ -3,6 +3,7 @@ import Task from '../entities/Task'
 import Project from '../entities/Project'
 import {getAllProjects, getProject} from "./ProjectLoader";
 import {showCustom} from "./ContentHandler";
+import circle from '/src/assets/circle.png'
 
 
 const date = new Date();
@@ -55,6 +56,7 @@ function loadTaskContent(project,containerID){
         project.tasks.forEach(task => {
             const htmlText =
                 `<div class="task-container"> 
+                    <img class="unchecked-circle" id="circle-${task.title}" src=${circle}/>
                     <span class="task-title">${task.title} </span>
                     <span class="task-description">${task.description}</span>
                     <span class="task-priority">${task.priority}</span>

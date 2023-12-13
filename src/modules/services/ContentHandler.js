@@ -1,6 +1,8 @@
 import {loadAllTasks,loadTodayTasks,loadSevenDaysTask,loadImportantTasks,addTask,loadCustomProjectTasks} from './TaskLoader'
 import Task from "../entities/Task";
 import {addProject, getAllProjects} from './ProjectLoader'
+import check from '/src/assets/check.png'
+import uncheckedCircle from '/src/assets/circle.png'
 
 let currentPage;
 function showAllTasks(){
@@ -10,6 +12,7 @@ function showAllTasks(){
     document.getElementById("seven-days-content").style.display = "none";
     document.getElementById("important-content").style.display = "none";
     loadAllTasks();
+    uncheckedCircles();
     currentPage = "AllTasks"
 }
 
@@ -127,9 +130,40 @@ function customProjectButtons(){
             }
             //console.log(e.target.id);
             loadCustomProjectTasks(e.target.id)
+            uncheckedCircles()
 
         })
     })
+}
+
+function uncheckedCircles(){
+    function handleEnter(e){
+        //console.log(e.srcElement.id)
+        const circle = document.getElementById(e.srcElement.id);
+        circle.setAttribute('src',check)
+    }
+    function handleExit(e){
+        const circle = document.getElementById(e.srcElement.id);
+        circle.setAttribute('src',uncheckedCircle)
+    }
+    function handleClick(e){
+        const circle = document.getElementById(e.srcElement.id)
+        circle.setAttribute('src',check)
+        circle.removeEventListener('mouseleave',handleExit)
+    }
+
+    const circles = document.querySelectorAll(".unchecked-circle");
+    circles.forEach(circle => {
+        circle.addEventListener('mouseenter', handleEnter);
+        circle.addEventListener('mouseleave', handleExit);
+        circle.addEventListener('click', handleClick);
+
+    })
+}
+
+function checkCircle(id){
+    const circle = document.getElementById(id)
+    circle.setAttribute('src',check)
 }
 
 

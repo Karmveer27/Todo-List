@@ -180,5 +180,12 @@ footer{
   margin-top: 30px;
 }
 
-
+.unchecked-circle{
+  width: 30px;
+  height: 30px;
+  align-self: end;
+}
+.unchecked-circle:hover{
+  cursor: pointer;
+}
 
