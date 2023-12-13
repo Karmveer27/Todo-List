@@ -31,6 +31,7 @@ function showToday(){
     document.getElementById("seven-days-content").style.display = "none";
     document.getElementById("important-content").style.display = "none";
     loadTodayTasks();
+    uncheckedCircles();
     currentPage = "Today"
 }
 
@@ -41,6 +42,7 @@ function showSevenDays(){
     document.getElementById("seven-days-content").style.display = "flex";
     document.getElementById("important-content").style.display = "none";
     loadSevenDaysTask()
+    uncheckedCircles();
     currentPage = "SevenDays"
 }
 
@@ -51,6 +53,7 @@ function showImportant(){
     document.getElementById("seven-days-content").style.display = "none";
     document.getElementById("important-content").style.display = "flex";
     loadImportantTasks();
+    uncheckedCircles();
     currentPage = "Important"
 }
 function showCustom(name){
@@ -60,6 +63,7 @@ function showCustom(name){
     document.getElementById("seven-days-content").style.display = "none";
     document.getElementById("important-content").style.display = "none";
     document.getElementById("custom-content").style.display = "flex";
+    uncheckedCircles();
     currentPage = "Custom"
 }
 
@@ -92,24 +96,7 @@ document.getElementById("formButton").addEventListener('click',function(e){
 
     addTask(task1);
 
-    switch (currentPage){
-        case "AllTasks":
-            loadAllTasks()
-            break;
-        case "Today":
-            loadTodayTasks()
-            break;
-        case "SevenDays":
-            loadSevenDaysTask()
-            break;
-        case "Important":
-            loadImportantTasks();
-            break;
-        case "Custom":
-            loadCustomProjectTasks(formProject)
-            break;
-
-    }
+    reload(formProject);
 
 
 })
@@ -145,17 +132,18 @@ function customProjectButtons(){
 }
 
 function uncheckedCircles(){
+    //Use e.target instead of src.element
     function handleEnter(e){
-        //console.log(e.srcElement.id)
-        const circle = document.getElementById(e.srcElement.id);
+        console.log(e.srcElement.id)
+        const circle = e.target;
         circle.setAttribute('src',check)
     }
     function handleExit(e){
-        const circle = document.getElementById(e.srcElement.id);
+        const circle = e.target;
         circle.setAttribute('src',uncheckedCircle)
     }
     function handleClick(e){
-        const circle = document.getElementById(e.srcElement.id)
+        const circle = e.target
         circle.setAttribute('src',check)
         circle.removeEventListener('mouseleave',handleExit)
         checkedCircle(e.srcElement.id)
@@ -174,6 +162,29 @@ function checkedCircle(id){
     const taskTitle = id.substring(id.indexOf('-')+1);
     console.log(taskTitle)
     removeTask(taskTitle)
+    reload();
+}
+
+function reload(){
+    switch (currentPage){
+        case "AllTasks":
+            loadAllTasks()
+            break;
+        case "Today":
+            loadTodayTasks()
+            break;
+        case "SevenDays":
+            loadSevenDaysTask()
+            break;
+        case "Important":
+            loadImportantTasks();
+            break;
+        case "Custom":
+            loadCustomProjectTasks(formProject)
+            break;
+
+    }
+    uncheckedCircles()
 }
 
 
