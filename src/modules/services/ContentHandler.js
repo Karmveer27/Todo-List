@@ -1,4 +1,12 @@
-import {loadAllTasks,loadTodayTasks,loadSevenDaysTask,loadImportantTasks,addTask,loadCustomProjectTasks} from './TaskLoader'
+import {
+    loadAllTasks,
+    loadTodayTasks,
+    loadSevenDaysTask,
+    loadImportantTasks,
+    addTask,
+    loadCustomProjectTasks,
+    removeTask
+} from './TaskLoader'
 import Task from "../entities/Task";
 import {addProject, getAllProjects} from './ProjectLoader'
 import check from '/src/assets/check.png'
@@ -150,6 +158,7 @@ function uncheckedCircles(){
         const circle = document.getElementById(e.srcElement.id)
         circle.setAttribute('src',check)
         circle.removeEventListener('mouseleave',handleExit)
+        checkedCircle(e.srcElement.id)
     }
 
     const circles = document.querySelectorAll(".unchecked-circle");
@@ -157,13 +166,14 @@ function uncheckedCircles(){
         circle.addEventListener('mouseenter', handleEnter);
         circle.addEventListener('mouseleave', handleExit);
         circle.addEventListener('click', handleClick);
-
     })
 }
 
-function checkCircle(id){
-    const circle = document.getElementById(id)
-    circle.setAttribute('src',check)
+function checkedCircle(id){
+    console.log(id)
+    const taskTitle = id.substring(id.indexOf('-')+1);
+    console.log(taskTitle)
+    removeTask(taskTitle)
 }
 
 

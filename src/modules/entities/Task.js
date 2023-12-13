@@ -46,6 +46,14 @@ class Task{
         this.parentProjects.push(project)
     }
 
+    removeParentProject(project){
+        const indexToRemove = this.parentProjects.indexOf(project);
+
+        if (indexToRemove !== -1) {
+            this.parentProjects.splice(indexToRemove, 1);
+        }
+    }
+
 }
 
 

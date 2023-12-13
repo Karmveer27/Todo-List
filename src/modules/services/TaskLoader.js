@@ -4,6 +4,7 @@ import Project from '../entities/Project'
 import {getAllProjects, getProject} from "./ProjectLoader";
 import {showCustom} from "./ContentHandler";
 import circle from '/src/assets/circle.png'
+import task from "../entities/Task";
 
 
 const date = new Date();
@@ -111,6 +112,22 @@ function addTask(task){
     }
 }
 
+function removeTask(taskTitle){
+    let taskToRemove;
+    allTasksProject.tasks.forEach(task => {
+        if(task.title === taskTitle){
+            taskToRemove = task;
+        }
+
+    })
+    taskToRemove.parentProjects.forEach(project => {
+        project.removeTask(taskToRemove)
+        taskToRemove.removeParentProject(project)
+    })
+
+}
+
+
 //Testing
 const task1 = new Task("Learn react","Next project needs to be with the MERN stack","2023-12-19","important");
 const task2 = new Task("Finish this Project","Complete CheckMate","2023-12-09","important");
@@ -122,4 +139,4 @@ allTasksProject.addTask(task3);
 console.log(allTasksProject)
 
 
-export {loadAllTasks,loadTodayTasks,loadSevenDaysTask,loadImportantTasks,addTask,loadCustomProjectTasks}
+export {loadAllTasks,loadTodayTasks,loadSevenDaysTask,loadImportantTasks,addTask,loadCustomProjectTasks,removeTask}
