@@ -168,7 +168,7 @@ function checkedCircle(id){
     reload();
 }
 
-function reload(){
+function reload(formProject){
     switch (currentPage){
         case "AllTasks":
             loadAllTasks()
