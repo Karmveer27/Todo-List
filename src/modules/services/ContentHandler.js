@@ -11,6 +11,7 @@ import Task from "../entities/Task";
 import {addProject, getAllProjects} from './ProjectLoader'
 import check from '/src/assets/check.png'
 import uncheckedCircle from '/src/assets/circle.png'
+import {checkedCircle,uncheckedCircles} from "./TaskStatusHandler";
 
 let currentPage;
 function showAllTasks(){
@@ -134,39 +135,7 @@ function customProjectButtons(){
     })
 }
 
-function uncheckedCircles(){
-    //Use e.target instead of src.element
-    function handleEnter(e){
-        console.log(e.srcElement.id)
-        const circle = e.target;
-        circle.setAttribute('src',check)
-    }
-    function handleExit(e){
-        const circle = e.target;
-        circle.setAttribute('src',uncheckedCircle)
-    }
-    function handleClick(e){
-        const circle = e.target
-        circle.setAttribute('src',check)
-        circle.removeEventListener('mouseleave',handleExit)
-        checkedCircle(e.srcElement.id)
-    }
 
-    const circles = document.querySelectorAll(".unchecked-circle");
-    circles.forEach(circle => {
-        circle.addEventListener('mouseenter', handleEnter);
-        circle.addEventListener('mouseleave', handleExit);
-        circle.addEventListener('click', handleClick);
-    })
-}
-
-function checkedCircle(id){
-    console.log(id)
-    const taskTitle = id.substring(id.indexOf('-')+1);
-    console.log(taskTitle)
-    removeTask(taskTitle)
-    reload();
-}
 
 function reload(formProject){
     switch (currentPage){
@@ -191,7 +160,7 @@ function reload(formProject){
 }
 
 
-export {showImportant,showToday,showAllTasks,showSevenDays,toggleOptions, projectOnClick,showCustom}
+export {showImportant,showToday,showAllTasks,showSevenDays,toggleOptions, projectOnClick,showCustom,reload}
 
 
 //getAllProjects()[0].addTask(new Task("Learn react","Next project needs to be with the MERN stack","2023-12-19","important"))
