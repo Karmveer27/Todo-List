@@ -12,6 +12,7 @@ import {addProject, getAllProjects} from './ProjectLoader'
 import check from '/src/assets/check.png'
 import uncheckedCircle from '/src/assets/circle.png'
 import {checkedCircle,uncheckedCircles} from "./TaskStatusHandler";
+import {dotEventListener} from "./TaskEditor";
 
 let currentPage;
 function showAllTasks(){
@@ -23,6 +24,7 @@ function showAllTasks(){
     loadAllTasks();
     uncheckedCircles();
     setFormDate();
+    dotEventListener()
     currentPage = "AllTasks"
 }
 
@@ -34,6 +36,7 @@ function showToday(){
     document.getElementById("important-content").style.display = "none";
     loadTodayTasks();
     uncheckedCircles();
+    dotEventListener()
     currentPage = "Today"
 }
 
@@ -45,6 +48,7 @@ function showSevenDays(){
     document.getElementById("important-content").style.display = "none";
     loadSevenDaysTask()
     uncheckedCircles();
+    dotEventListener()
     currentPage = "SevenDays"
 }
 
@@ -56,6 +60,7 @@ function showImportant(){
     document.getElementById("important-content").style.display = "flex";
     loadImportantTasks();
     uncheckedCircles();
+    dotEventListener()
     currentPage = "Important"
 }
 function showCustom(name){
@@ -66,6 +71,7 @@ function showCustom(name){
     document.getElementById("important-content").style.display = "none";
     document.getElementById("custom-content").style.display = "flex";
     uncheckedCircles();
+    dotEventListener()
     currentPage = "Custom"
 }
 
@@ -99,8 +105,8 @@ document.getElementById("formButton").addEventListener('click',function(e){
 
     addTask(task1);
     reload(formProject);
-    document.getElementById('add-task').reset();
-    setFormDate();
+    //document.getElementById('add-task').reset();
+    //setFormDate();
 
 
 })
@@ -138,6 +144,8 @@ function customProjectButtons(){
 
 
 function reload(formProject){
+    document.getElementById('add-task').reset(); // reset form
+    setFormDate(); // set form date
     switch (currentPage){
         case "AllTasks":
             loadAllTasks()

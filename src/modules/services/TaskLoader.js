@@ -5,6 +5,8 @@ import {getAllProjects, getProject} from "./ProjectLoader";
 import {showCustom} from "./ContentHandler";
 import circle from '/src/assets/circle.png'
 import task from "../entities/Task";
+import whiteDots from '/src/assets/white-dots.png'
+import blackDots from '/src/assets/black-dots.png'
 
 
 const date = new Date();
@@ -60,7 +62,10 @@ function loadTaskContent(project,containerID){
         project.tasks.forEach(task => {
             const htmlText =
                 `<div class="task-container"> 
-                    <img class="unchecked-circle" id="circle-${task.title}" src=${circle}/>
+                    <div class="task-img-div">
+                        <img class="white-dots" id="dots-${task.title}" src=${whiteDots}/>
+                        <img class="unchecked-circle" id="circle-${task.title}" src=${circle}/>
+                    </div>
                     <span class="task-title">${task.title} </span>
                     <span class="task-description">${task.description}</span>
                     <span class="task-priority">${task.priority}</span>
