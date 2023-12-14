@@ -5,7 +5,7 @@ import {
     loadImportantTasks,
     addTask,
     loadCustomProjectTasks,
-    removeTask
+    removeTask, setFormDate
 } from './TaskLoader'
 import Task from "../entities/Task";
 import {addProject, getAllProjects} from './ProjectLoader'
@@ -21,6 +21,7 @@ function showAllTasks(){
     document.getElementById("important-content").style.display = "none";
     loadAllTasks();
     uncheckedCircles();
+    setFormDate();
     currentPage = "AllTasks"
 }
 
@@ -78,6 +79,7 @@ function toggleOptions(){
 }
 
 document.getElementById("formButton").addEventListener('click',function(e){
+    e.preventDefault()
     const formTitle = document.querySelector("#formTitle").value;
     const formDescription = document.querySelector("#formDescription").value;
     const formDate = document.querySelector("#formDate").value;
@@ -95,8 +97,9 @@ document.getElementById("formButton").addEventListener('click',function(e){
     })
 
     addTask(task1);
-
     reload(formProject);
+    document.getElementById('add-task').reset();
+    setFormDate();
 
 
 })

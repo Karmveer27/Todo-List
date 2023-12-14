@@ -75,27 +75,30 @@
 
             </div>
 
-            <div id="add-task">
-                <h1>Add Task</h1>
-                <input type="text" id="formTitle" placeholder="Enter a title" />
-                <input type="text" id="formDescription" placeholder="Describe your task" />
 
-                <div>
-                    <label for="formDate"></label>
-                    <input type="date" id="formDate" name="formDate" >
 
-                    <select id="formPriority" name="cars" >
-                        <option value="important">Important</option>
-                        <option value="standard">Standard</option>
-                        <option value="minor" selected>Minor</option>
+                <form id="add-task">
+                    <h1>Add Task</h1>
+                    <input type="text" id="formTitle" placeholder="Enter a title" />
+                    <input type="text" id="formDescription" placeholder="Describe your task" />
+
+                    <div>
+                        <label for="formDate"></label>
+                        <input type="date" id="formDate" name="formDate" >
+
+                        <select id="formPriority" name="cars" >
+                            <option value="important">Important</option>
+                            <option value="standard">Standard</option>
+                            <option value="minor" selected>Minor</option>
+                        </select>
+                    </div>
+                    <select id="formProject" name="cars" >
+                        <option value="none">None</option>
                     </select>
-                </div>
-                <select id="formProject" name="cars" >
-                    <option value="none">None</option>
-                </select>
 
-                <button id="formButton">Click Me</button>
-            </div>
+                    <button id="formButton">Click Me</button>
+                </form>
+
 
             <div id="new-project">
                 <h2>Add project</h2>

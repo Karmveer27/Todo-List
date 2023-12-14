@@ -9,11 +9,14 @@ import task from "../entities/Task";
 
 const date = new Date();
 const allTasksProject = new Project("AllTasks"); // Project that keeps track of all tasks
-function loadAllTasks(){
-    loadTaskContent(allTasksProject,"all-task-content")
+
+function setFormDate(){
 
     const tomorrowDate = date.addDays(date.getCurrentTime(),1);
     document.getElementById("formDate").value = date.getFormattedDate(tomorrowDate);
+}
+function loadAllTasks(){
+    loadTaskContent(allTasksProject,"all-task-content")
 
 }
 function loadTodayTasks(){
@@ -139,4 +142,4 @@ allTasksProject.addTask(task3);
 console.log(allTasksProject)
 
 
-export {loadAllTasks,loadTodayTasks,loadSevenDaysTask,loadImportantTasks,addTask,loadCustomProjectTasks,removeTask}
+export {loadAllTasks,loadTodayTasks,loadSevenDaysTask,loadImportantTasks,addTask,loadCustomProjectTasks,removeTask,setFormDate}
