@@ -191,6 +191,9 @@ footer{
 .white-dots{
   width: 30px;;
 }
+.white-dots:hover{
+  cursor: pointer;
+}
 .task-img-div{
   display: flex;
   justify-content: space-between;

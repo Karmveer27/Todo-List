@@ -119,6 +119,15 @@ function addTask(task){
         allTasksProject.addTask(task);
     }
 }
+function getTask(taskTitle){
+    allTasksProject.tasks.forEach(task => {
+        if(task.title === taskTitle){
+            return task;
+        }
+    })
+    return null;
+
+}
 
 function removeTask(taskTitle){
     let taskToRemove;
@@ -147,4 +156,4 @@ allTasksProject.addTask(task3);
 console.log(allTasksProject)
 
 
-export {loadAllTasks,loadTodayTasks,loadSevenDaysTask,loadImportantTasks,addTask,loadCustomProjectTasks,removeTask,setFormDate}
+export {loadAllTasks,loadTodayTasks,loadSevenDaysTask,loadImportantTasks,addTask,loadCustomProjectTasks,removeTask,setFormDate,getTask}
