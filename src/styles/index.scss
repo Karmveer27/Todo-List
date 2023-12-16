@@ -198,4 +198,15 @@ footer{
   display: flex;
   justify-content: space-between;
 }
+#edit-task{
+  position: absolute;
+  background-color: red;
+  left: 50%;
+  top: 50%;
+  width: 500px;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  visibility: hidden;
+}
 

@@ -120,12 +120,14 @@ function addTask(task){
     }
 }
 function getTask(taskTitle){
+    let taskToFind;
     allTasksProject.tasks.forEach(task => {
         if(task.title === taskTitle){
-            return task;
+            taskToFind = task;
         }
     })
-    return null;
+    return taskToFind;
+
 
 }
 

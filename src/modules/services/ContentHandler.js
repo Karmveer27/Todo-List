@@ -165,6 +165,7 @@ function reload(formProject){
 
     }
     uncheckedCircles()
+    dotEventListener();
 }
 
 

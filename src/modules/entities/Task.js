@@ -54,6 +54,19 @@ class Task{
         }
     }
 
+    setTitle(title){
+        this.title = title;
+    }
+    setDescription(description){
+        this.description = description;
+    }
+    setPriority(priority){
+        this.priority = priority;
+    }
+    setDate(date){
+        this.dueDate = date;
+    }
+
 }
 
 
