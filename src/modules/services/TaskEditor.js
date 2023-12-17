@@ -44,12 +44,16 @@ function enterEditMenu(id){
     document.getElementById("setDescription").value = task.description
     document.getElementById("setDate").value = date.getFormattedDate(task.dueDate)
     document.getElementById("setPriority").value = task.priority
-    document.getElementById('editTaskButton').addEventListener('click',(e) => {
-        e.preventDefault()
-        changeTaskInfo(task)
-    })
-    reload()
+    const editTaskButton = document.getElementById('editTaskButton');
+    editTaskButton.removeEventListener('click', handleEditButtonClick);
+    editTaskButton.addEventListener('click', handleEditButtonClick);
 
+}
+function handleEditButtonClick(e) {
+    e.preventDefault();
+    const taskTitle = document.getElementById("setTitle").value;
+    const task = getTask(taskTitle);
+    changeTaskInfo(task);
 }
 function exitEditMenu(id){
     setToWhiteDots(id);
@@ -69,6 +73,8 @@ function changeTaskInfo(task){
     task.setDate(date)
     task.setPriority(priority)
     reload()
+    document.getElementById("edit-task").style.visibility = 'hidden'
+
 
 }
 export {dotEventListener}
