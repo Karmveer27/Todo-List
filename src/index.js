@@ -27,6 +27,7 @@ import Task from './modules/entities/Task'
 import Project from './modules/entities/Project'
 //Methods
 import { loadAllTasks,isSameDay } from './modules/services/TaskLoader';
+import {loadExitImages} from "./modules/services/exitContent";
 
 
 window.onload = () => {
@@ -55,6 +56,7 @@ document.getElementById("home").addEventListener('click',toggleOptions);
 document.getElementById("home-onclose").addEventListener('click',toggleOptions);
 document.getElementById("add-project-button").addEventListener('click',projectOnClick);
 
+loadExitImages();
 
 
 

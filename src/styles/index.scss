@@ -203,10 +203,22 @@ footer{
   background-color: red;
   left: 50%;
   top: 50%;
-  width: 500px;
-  height: 100px;
+  min-width: 500px;
+  min-height: 200px;
   display: flex;
   flex-direction: column;
   visibility: hidden;
 }
-
+.cross{
+  width: 30px;
+  height: 30px;
+  align-self: center;
+  margin-left: auto;
+}
+.cross:hover{
+  cursor: pointer;
+}
+.option-title{
+  display: flex;
+  //justify-content: space-between;
+}

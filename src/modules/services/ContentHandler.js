@@ -116,6 +116,9 @@ function projectOnClick(){
     projectPromptOpened ? document.getElementById("new-project").style.display = 'none' : document.getElementById("new-project").style.display = 'flex';
     projectPromptOpened = !projectPromptOpened
 }
+function setprojectPromptOpened(ifOpened){
+    projectPromptOpened = ifOpened;
+}
 document.getElementById("projectButton").addEventListener('click', (e) => {
 
     e.preventDefault();
@@ -169,7 +172,7 @@ function reload(formProject){
 }
 
 
-export {showImportant,showToday,showAllTasks,showSevenDays,toggleOptions, projectOnClick,showCustom,reload}
+export {showImportant,showToday,showAllTasks,showSevenDays,toggleOptions, projectOnClick,showCustom,reload,setprojectPromptOpened}
 
 
 //getAllProjects()[0].addTask(new Task("Learn react","Next project needs to be with the MERN stack","2023-12-19","important"))
