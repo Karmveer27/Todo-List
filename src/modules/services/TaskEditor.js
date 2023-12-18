@@ -44,17 +44,21 @@ function enterEditMenu(id){
     document.getElementById("setDescription").value = task.description
     document.getElementById("setDate").value = date.getFormattedDate(task.dueDate)
     document.getElementById("setPriority").value = task.priority
-    const editTaskButton = document.getElementById('editTaskButton');
-    editTaskButton.removeEventListener('click', handleEditButtonClick);
-    editTaskButton.addEventListener('click', handleEditButtonClick);
+    function handleEditButton() {
+        return function (e) {
+            e.preventDefault();
+            changeTaskInfo(task);
+        };
+    }
+
+    let old_element = document.getElementById("editTaskButton");
+    let new_element = old_element.cloneNode(true);
+    old_element.parentNode.replaceChild(new_element, old_element);
+    new_element.addEventListener('click', handleEditButton() );
+
 
 }
-function handleEditButtonClick(e) {
-    e.preventDefault();
-    const taskTitle = document.getElementById("setTitle").value;
-    const task = getTask(taskTitle);
-    changeTaskInfo(task);
-}
+
 function exitEditMenu(id){
     setToWhiteDots(id);
     //remove buttone event listener??
@@ -62,18 +66,25 @@ function exitEditMenu(id){
 }
 
 function changeTaskInfo(task){
-    console.log(task.title)
-    //console.log(task)
-    const title = document.getElementById("setTitle").value
-    const description = document.getElementById("setDescription").value
-    const date = document.getElementById("setDate").value
-    const priority = document.getElementById("setPriority").value
-    task.setTitle(title)
-    task.setDescription(description)
-    task.setDate(date)
-    task.setPriority(priority)
-    reload()
-    document.getElementById("edit-task").style.visibility = 'hidden'
+    console.log("entering changeTaskInfo")
+    if(task){
+        console.log(task)
+        const title = document.getElementById("setTitle").value
+        const description = document.getElementById("setDescription").value
+        const date = document.getElementById("setDate").value
+        const priority = document.getElementById("setPriority").value
+        task.setTitle(title)
+        task.setDescription(description)
+        task.setDate(date)
+        task.setPriority(priority)
+        reload()
+        document.getElementById("edit-task").style.visibility = 'hidden'
+    }
+    else{
+        console.log("not recieving a task object")
+    }
+
+
 
 
 }

@@ -155,7 +155,7 @@ const task3 = new Task("Sleep More","Focus on 8 hours a sleep within the next we
 allTasksProject.addTask(task1);
 allTasksProject.addTask(task2);
 allTasksProject.addTask(task3);
-console.log(allTasksProject)
+//console.log(allTasksProject)
 
 
 export {loadAllTasks,loadTodayTasks,loadSevenDaysTask,loadImportantTasks,addTask,loadCustomProjectTasks,removeTask,setFormDate,getTask}

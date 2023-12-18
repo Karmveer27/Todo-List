@@ -6,7 +6,7 @@ import {reload} from "./ContentHandler"
 function uncheckedCircles(){
     //Use e.target instead of src.element
     function handleEnter(e){
-        console.log(e.srcElement.id)
+        //console.log(e.srcElement.id)
         const circle = e.target;
         circle.setAttribute('src',check)
     }
