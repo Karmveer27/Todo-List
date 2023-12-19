@@ -78,64 +78,64 @@
 
 
                 <form id="add-task">
-                    <h1>Add Task</h1>
-                    <input type="text" id="formTitle" placeholder="Enter a title" />
-                    <input type="text" id="formDescription" placeholder="Describe your task" />
+                    <h1 >Add Task</h1>
+                    <input type="text" id="formTitle" placeholder="Enter a title" class="inputText" />
+                    <input type="text" id="formDescription" placeholder="Describe your task" class="inputText" />
 
                     <div>
                         <label for="formDate"></label>
-                        <input type="date" id="formDate" name="formDate" >
+                        <input type="date" id="formDate" name="formDate" class="inputText" >
 
-                        <select id="formPriority" name="cars" >
+                        <select id="formPriority" name="cars" class="inputText" >
                             <option value="important">Important</option>
                             <option value="standard">Standard</option>
                             <option value="minor" selected>Minor</option>
                         </select>
                     </div>
-                    <select id="formProject" name="cars" >
+                    <select id="formProject" name="cars" class="inputText" >
                         <option value="none">None</option>
                     </select>
 
-                    <button id="formButton">Click Me</button>
+                    <button id="formButton" class="inputText">Click Me</button>
                 </form>
 
             <form id="edit-task">
                 <div class="option-title">
-                    <h3>Edit Task</h3>
+                    <h3 class="formTitle">Edit Task</h3>
                     <img class="cross">
                 </div>
                 <div>
                     <label for="setTitle">Title</label>
-                    <input type="text" id="setTitle" name="setTitle"/>
+                    <input type="text" id="setTitle" name="setTitle" class="inputText"/>
                 </div>
-                <input type="text" id="setDescription" placeholder="Describe your task" />
+                <input type="text" id="setDescription" placeholder="Describe your task" class="inputText" />
 
                 <div>
                     <label for="formDate"></label>
-                    <input type="date" id="setDate" name="formDate" >
+                    <input type="date" id="setDate" name="formDate" class="inputText">
 
-                    <select id="setPriority" name="cars" >
+                    <select id="setPriority" name="cars"  class="inputText">
                         <option value="important">Important</option>
                         <option value="standard">Standard</option>
                         <option value="minor" selected>Minor</option>
                     </select>
                 </div>
-                <button id="editTaskButton">Confirm</button>
+                <button id="editTaskButton" class="inputText">Confirm</button>
 
             </form>
 
 
             <div id="new-project">
                 <div class="option-title">
-                    <h2>Add project</h2>
+                    <h2 class="formTitle">Add project</h2>
                     <img class="cross">
                 </div>
                 <form id="projectForm">
                     <label for="projectName">Name</label>
-                    <input type="text" name="projectName" id="projectName" placeholder="Enter a name"/>
+                    <input type="text" name="projectName" id="projectName" placeholder="Enter a name" class="inputText"/>
 
                     <label for="colorSelect">Colour:</label>
-                    <select id="colorSelect" name="colorSelect">
+                    <select id="colorSelect" name="colorSelect" class="inputText">
                         <option value="white">White</option>
                         <option value="black">Black</option>
                         <option value="red">Red</option>
@@ -147,7 +147,7 @@
                         <option value="grey">Grey</option>
                     </select>
 
-                    <button id="projectButton">Add</button>
+                    <button id="projectButton" class="inputText">Add</button>
                 </form>
             </div>
         </div>

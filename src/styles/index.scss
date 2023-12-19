@@ -2,13 +2,18 @@
 /*Varibles*/
 $content-width: 80vw;
 $sidebar-width: 20vw;
-$lightBlue: #0077A8;
-$brightBlue: #00ABE4;
+$mainColour: #15181f; //Darker Grey
+$secondaryColour: #1a1e27 ; //Lighter Grey
+$primaryTextColour: white;
+$secondaryTextColour: grey;
 $green : #3ece57;
 $white: white;
 
 *{
   font-family: 'Montserrat', sans-serif;
+  color: white;
+
+
 }
 body{
   display: flex;
@@ -21,8 +26,11 @@ nav{
   color: $white;
   display: flex;
   justify-content: center;
-  background-color: $brightBlue;
+  background-color: $green;
   font-size: 25px;
+  height: 80px;
+  width: 100vw;
+
 }
 
 
@@ -33,7 +41,7 @@ main{
 }
 
 footer{
-  background-color: $brightBlue;
+  background-color: $green;
   margin-top: auto;
   display: flex;
   justify-content: center;
@@ -41,14 +49,14 @@ footer{
 
 #sidebar{
   min-width: $sidebar-width; /*This and content width should equal 100vw*/
-  background-color: $green;
+  background-color: $secondaryColour;
   color: white;
   //display: none;
 }
 
 #content{
   min-width: $content-width; /*This and sidebar width should equal 100vw*/
-  background-color: $lightBlue;
+  background-color: $mainColour;
   display: flex;
   flex: 1;
   flex-direction: column;
@@ -58,7 +66,7 @@ footer{
 
 }
 #content-title{
-  background-color: $green;
+  background-color: $secondaryColour;
   height: 100px;
   width: 70vw;
   margin-top:30px;
@@ -110,7 +118,7 @@ footer{
   cursor: pointer;
 }
 #mate{
-  color: $green;
+  //color: $green;
   position: relative;
   top: 3px;
 }
@@ -133,8 +141,8 @@ footer{
 .task-container{
   display: flex;
   flex-direction: column;
-  background-color: navajowhite;
-  border: 4px solid white ;
+  background-color: $secondaryColour;
+  //border: 4px solid white ;
   margin: 10px;
   padding: 5px 30px;
   min-width: 400px;
@@ -143,10 +151,13 @@ footer{
 #add-task{
   display: flex;
   flex-direction: column;
+  background-color: $green;
+  margin: 10px;
+
 }
 
 #formDescription{
-  height: 100px;
+  height: 40px;
   display: flex;
   font-size: 10px;
   text-align: left;
@@ -160,7 +171,7 @@ footer{
 
 #new-project{
   position: absolute;
-  background-color:rosybrown ;
+  background-color:$secondaryColour ;
   margin: 20px;
   top: 30%;
   left: 45%;
@@ -168,6 +179,9 @@ footer{
   height: 400px;
   display: none;
   flex-direction: column;
+}
+.formTitle{
+  color: $green;
 }
 
 #projectForm{
@@ -199,15 +213,15 @@ footer{
   justify-content: space-between;
 }
 #edit-task{
-  position: absolute;
-  background-color: red;
-  left: 50%;
-  top: 50%;
+  background-color: $secondaryColour;
   min-width: 500px;
   min-height: 200px;
   display: flex;
   flex-direction: column;
   visibility: hidden;
+  position: absolute;
+  top: 30%;
+  left: 45%;
 }
 .cross{
   width: 30px;
@@ -222,3 +236,7 @@ footer{
   display: flex;
   //justify-content: space-between;
 }
+.inputText{
+  color: $secondaryTextColour;
+}
+
