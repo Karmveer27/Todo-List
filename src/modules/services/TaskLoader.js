@@ -48,6 +48,7 @@ function loadImportantTasks(){
     const importantTasks = new Project("ImportantTasks");
     allTasksProject.tasks.forEach(task => {
          if(task.priority === "important"){
+             console.log(task)
              importantTasks.addTask(task)
          }
     })
@@ -57,8 +58,10 @@ function loadImportantTasks(){
 
 function loadTaskContent(project,containerID){
     const contentContainer = document.getElementById(containerID);
+    const customContainer = document.getElementById("custom-content");
     if(contentContainer && project.tasks !== undefined){
         contentContainer.innerHTML = '';
+        customContainer.innerHTML = '';
         project.tasks.forEach(task => {
             const htmlText =
                 `<div class="task-container"> 
