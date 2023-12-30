@@ -1,6 +1,6 @@
 import crossIcon from '../../assets/cross.png'
 import whiteDots from '../../assets/white-dots.png'
-import {setprojectPromptOpened} from "./ContentHandler";
+import {setaddTaskPromptOpened, setprojectPromptOpened} from "./ContentHandler";
 
 function loadExitImages(){
     const crosses = document.querySelectorAll(".cross");
@@ -17,6 +17,10 @@ function loadExitImages(){
                 document.querySelectorAll(".white-dots").forEach(dot =>{
                     dot.setAttribute('src',whiteDots)
                 })
+           }
+           else if(e.target.closest("#add-task")){
+               document.getElementById("add-task").style.visibility = 'hidden';
+               setaddTaskPromptOpened(false)
            }
         })
     })

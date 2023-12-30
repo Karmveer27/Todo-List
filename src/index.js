@@ -4,7 +4,7 @@ import {
     showSevenDays,
     showImportant,
     toggleOptions,
-    projectOnClick
+    projectOnClick, addTaskOnClick
 } from "./modules/services/ContentHandler"
 import {
     loadProjects
@@ -57,6 +57,7 @@ document.getElementById("important-button").addEventListener('click',showImporta
 document.getElementById("home").addEventListener('click',toggleOptions);
 document.getElementById("home-onclose").addEventListener('click',toggleOptions);
 document.getElementById("add-project-button").addEventListener('click',projectOnClick);
+document.getElementById("add-task-button").addEventListener('click',addTaskOnClick)
 
 loadExitImages();
 

@@ -112,6 +112,15 @@ document.getElementById("formButton").addEventListener('click',function(e){
 })
 
 let projectPromptOpened = false;
+let addTaskPromptOpened = false;
+
+function addTaskOnClick(){
+    addTaskPromptOpened ? document.getElementById("add-task").style.visibility = 'hidden' : document.getElementById("add-task").style.visibility = 'visible';
+    addTaskPromptOpened = !addTaskPromptOpened
+}
+function setaddTaskPromptOpened(ifOpened){
+    addTaskPromptOpened = ifOpened;
+}
 function projectOnClick(){
     projectPromptOpened ? document.getElementById("new-project").style.display = 'none' : document.getElementById("new-project").style.display = 'flex';
     projectPromptOpened = !projectPromptOpened
@@ -172,7 +181,7 @@ function reload(formProject){
 }
 
 
-export {showImportant,showToday,showAllTasks,showSevenDays,toggleOptions, projectOnClick,showCustom,reload,setprojectPromptOpened}
+export {showImportant,showToday,showAllTasks,showSevenDays,toggleOptions, projectOnClick,showCustom,reload,setprojectPromptOpened,addTaskOnClick,setaddTaskPromptOpened}
 
 
 //getAllProjects()[0].addTask(new Task("Learn react","Next project needs to be with the MERN stack","2023-12-19","important"))

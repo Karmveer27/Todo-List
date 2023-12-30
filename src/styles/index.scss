@@ -146,13 +146,6 @@ footer{
   min-width: 400px;
 }
 
-#add-task{
-  display: flex;
-  flex-direction: column;
-  background-color: $green;
-  margin: 10px;
-
-}
 
 #formDescription{
   height: 40px;
@@ -177,6 +170,19 @@ footer{
   height: 400px;
   display: none;
   flex-direction: column;
+}
+#add-task{
+  background-color: $secondaryColour;
+  margin: 20px;
+  padding: 10px;
+  width: 500px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 30%;
+  left: 45%;
+  visibility: hidden;
 }
 .formTitle{
   color: $green;
