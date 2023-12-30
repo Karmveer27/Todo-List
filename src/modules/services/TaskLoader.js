@@ -59,6 +59,7 @@ function loadImportantTasks(){
 function loadTaskContent(project,containerID){
     const contentContainer = document.getElementById(containerID);
     const customContainer = document.getElementById("custom-content");
+
     if(contentContainer && project.tasks !== undefined){
         contentContainer.innerHTML = '';
         customContainer.innerHTML = '';

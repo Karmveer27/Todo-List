@@ -22,6 +22,7 @@ import important from './assets/flag.png'
 import menuEntry from './assets/menu-entry.png'
 import gtihub from './assets/github.png'
 import linkedin from './assets/linkedin.png'
+import plus from './assets/plus.png'
 //Classes
 import Task from './modules/entities/Task'
 import Project from './modules/entities/Project'
@@ -47,6 +48,7 @@ document.getElementById('home').src = menuEntry;
 document.getElementById('home-onclose').src = menuEntry;
 document.getElementById('github').src = gtihub;
 document.getElementById('linkedin').src = linkedin;
+document.getElementById('plus').src = plus;
 
 document.getElementById("all-tasks-button").addEventListener('click',showAllTasks);
 document.getElementById("today-button").addEventListener('click',showToday);

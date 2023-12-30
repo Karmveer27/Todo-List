@@ -12,8 +12,6 @@ $white: white;
 *{
   font-family: 'Montserrat', sans-serif;
   color: white;
-
-
 }
 body{
   display: flex;
@@ -203,7 +201,7 @@ footer{
   cursor: pointer;
 }
 .white-dots{
-  width: 30px;;
+  width: 30px;
 }
 .white-dots:hover{
   cursor: pointer;
@@ -239,4 +237,27 @@ footer{
 .inputText{
   color: $secondaryTextColour;
 }
-
+select{
+  color: $secondaryTextColour;
+}
+#content-title{
+  display: flex;
+  justify-content: space-between;
+}
+#add-task-button{
+  align-self: center;
+  width: 150px;
+  margin-right: 10px;
+  display: flex;
+  background-color: $green;
+  border-radius: 10px;
+}
+#add-task-button:hover{
+  cursor: pointer;
+}
+#plus{
+  width: 25px;
+  height: 25px;
+  align-self: center;
+  padding-right: 5px;
+}
