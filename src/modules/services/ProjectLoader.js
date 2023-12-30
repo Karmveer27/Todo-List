@@ -13,7 +13,7 @@ function loadProjects(){
     const projectContainer = document.getElementById("projectContainer");
     projectContainer.innerHTML = '';
     allProjects.forEach(project => {
-        const htmlText = `<span class="customProjects options"><h1 id=${project.name} style="color:${project.colour}">${project.name}</h1></span>`;
+        const htmlText = `<span class="customProjects options"><h2 id=${project.name} style="color:${project.colour}">${project.name}</h2></span>`;
         projectContainer.innerHTML += htmlText;
     })
 
