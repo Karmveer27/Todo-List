@@ -29,11 +29,13 @@ import Project from './modules/entities/Project'
 //Methods
 import { loadAllTasks,isSameDay } from './modules/services/TaskLoader';
 import {loadExitImages} from "./modules/services/exitContent";
+import {checkProjectValid} from "./modules/services/InputValidator";
 
 
 window.onload = () => {
     showAllTasks();
     loadProjects();
+    checkProjectValid();
 
 }
 

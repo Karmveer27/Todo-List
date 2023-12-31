@@ -7,6 +7,7 @@ import circle from '/src/assets/circle.png'
 import task from "../entities/Task";
 import whiteDots from '/src/assets/white-dots.png'
 import blackDots from '/src/assets/black-dots.png'
+import {checkTaskValid} from "./InputValidator";
 
 
 const date = new Date();
@@ -119,6 +120,10 @@ function isSameDay(timestamp1, timestamp2){
 }
 
 function addTask(task){
+    if(!checkTaskValid(task.title)){
+        console.log("invalid task")
+        return;
+    }
     if(task instanceof Task){
         allTasksProject.addTask(task);
     }

@@ -1,7 +1,14 @@
 import Project from "../entities/Project";
+import {checkProjectValid} from "./InputValidator";
 
 const allProjects = [];
+
+
 function addProject(name,colour){
+    if(!checkProjectValid(name)){
+        console.log("Not valid project ")
+        return;
+    }
     const newProject = Project.constructorWithColour(name,colour);
     allProjects.push(newProject);
     loadProjects()

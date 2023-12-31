@@ -93,8 +93,8 @@ document.getElementById("formButton").addEventListener('click',function(e){
     const formPriority = document.querySelector("#formPriority").value;
     const formProject = document.querySelector("#formProject").value;
     const task1 = new Task(formTitle,formDescription,formDate,formPriority);
-    console.log("Getting Project")
-    console.log(formProject)
+    //console.log("Getting Project")
+    //console.log(formProject)
     const allProjects =  getAllProjects();
     allProjects.forEach(project => {
         if(project.name === formProject){
