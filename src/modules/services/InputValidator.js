@@ -13,8 +13,8 @@ function checkProjectValid(projectName){
         return true;
     }
     else{
-        console.trace()
-        console.log(projectName)
+       // console.trace()
+       //console.log(projectName)
         addErrorProject()
         return false;
     }
@@ -28,6 +28,17 @@ function checkTaskValid(taskName){
        addErrorTask();
        return false;
    }
+
+}
+function checkEditTaskValid(taskName){
+    const task = getTask(taskName);
+    if(task === undefined && taskName !== undefined){
+        removeErrorEditTask();
+        return true;
+    }else{
+        addErrorEditTask();
+        return false;
+    }
 
 }
 
@@ -53,5 +64,15 @@ function removeErrorTask(){
     document.getElementById("taskError").style.display = 'none';
     document.getElementById("formTitle").classList.remove("errorBox")
 }
+function addErrorEditTask(){
+    //document.getElementById("taskError").style.visibility = 'visible';
+    document.getElementById("taskEditError").style.display = 'flex';
+    document.getElementById("setTitle").classList.add("errorBox")
+}
+function removeErrorEditTask(){
+    //document.getElementById("taskError").style.visibility = 'hidden';
+    document.getElementById("taskEditError").style.display = 'none';
+    document.getElementById("setTitle").classList.remove("errorBox")
+}
 
-export {checkProjectValid,checkTaskValid}
+export {checkProjectValid,checkTaskValid,checkEditTaskValid}

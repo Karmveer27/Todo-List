@@ -3,6 +3,7 @@ import blackDots from '../../assets/black-dots.png'
 import {getTask} from "./TaskLoader";
 import {reload} from "./ContentHandler";
 import Date from './Date'
+import {checkEditTaskValid, checkTaskValid} from "./InputValidator";
 
 const date = new Date();
 function dotEventListener(){
@@ -68,8 +69,12 @@ function exitEditMenu(id){
 function changeTaskInfo(task){
     console.log("entering changeTaskInfo")
     if(task){
+
         console.log(task)
         const title = document.getElementById("setTitle").value
+        if(!checkEditTaskValid(title)){
+            return;
+        }
         const description = document.getElementById("setDescription").value
         const date = document.getElementById("setDate").value
         const priority = document.getElementById("setPriority").value
