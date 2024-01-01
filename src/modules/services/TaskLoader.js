@@ -64,7 +64,7 @@ function loadTaskContent(project,containerID){
     if(contentContainer && project.tasks !== undefined){
         contentContainer.innerHTML = '';
         customContainer.innerHTML = '';
-        project.tasks.forEach(task => {
+        project.tasks.reverse().forEach(task => {
             const htmlText =
                 `<div class="task-container"> 
                     <div class="task-img-div">
@@ -74,7 +74,7 @@ function loadTaskContent(project,containerID){
                     <span class="task-title">${task.title} </span>
                     <span class="task-description">${task.description}</span>
                     <span class="task-priority">${task.priority}</span>
-                    <span>
+                    <span id="dueDateId${task.title}">
                         ${task.getDay(task.dueDate)}/${task.getMonth(task.dueDate)}/${task.getYear(task.dueDate)}   
                     </span>
                 </div>
@@ -140,6 +140,9 @@ function getTask(taskTitle){
 
 
 }
+function getAllTasks(){
+    return allTasksProject;
+}
 
 function removeTask(taskTitle){
     let taskToRemove;
@@ -168,4 +171,4 @@ allTasksProject.addTask(task3);
 //console.log(allTasksProject)
 
 
-export {loadAllTasks,loadTodayTasks,loadSevenDaysTask,loadImportantTasks,addTask,loadCustomProjectTasks,removeTask,setFormDate,getTask}
+export {loadAllTasks,loadTodayTasks,loadSevenDaysTask,loadImportantTasks,addTask,loadCustomProjectTasks,removeTask,setFormDate,getTask,getAllTasks}

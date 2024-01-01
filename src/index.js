@@ -30,11 +30,13 @@ import Project from './modules/entities/Project'
 import { loadAllTasks,isSameDay } from './modules/services/TaskLoader';
 import {loadExitImages} from "./modules/services/exitContent";
 import {checkProjectValid} from "./modules/services/InputValidator";
+import {checkDueDate} from "./modules/services/TaskStatusHandler";
 
 
 window.onload = () => {
     showAllTasks();
     loadProjects();
+    checkDueDate();
 
 }
 

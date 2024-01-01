@@ -11,7 +11,7 @@ import Task from "../entities/Task";
 import {addProject, getAllProjects} from './ProjectLoader'
 import check from '/src/assets/check.png'
 import uncheckedCircle from '/src/assets/circle.png'
-import {checkedCircle,uncheckedCircles} from "./TaskStatusHandler";
+import {checkDueDate, checkedCircle, uncheckedCircles} from "./TaskStatusHandler";
 import {dotEventListener} from "./TaskEditor";
 
 let currentPage;
@@ -177,6 +177,7 @@ function reload(formProject){
     }
     uncheckedCircles()
     dotEventListener();
+    checkDueDate();
 }
 
 

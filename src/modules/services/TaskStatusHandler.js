@@ -1,7 +1,10 @@
 import check from "../../assets/check.png";
 import uncheckedCircle from "../../assets/circle.png";
-import {removeTask} from "./TaskLoader";
+import {getAllTasks, removeTask} from "./TaskLoader";
 import {reload} from "./ContentHandler"
+import Date from "./Date"
+
+const date = new Date();
 
 function uncheckedCircles(){
     //Use e.target instead of src.element
@@ -38,7 +41,18 @@ function checkedCircle(id){
 }
 
 function checkDueDate(){
+    console.log("Checking due date")
+    getAllTasks().tasks.forEach(task => {
+        console.log(task)
+        const dueChecker = date.compareDates(task.dueDate,date.getCurrentTime())
+        console.log(dueChecker)
+        const dueDateSpan = document.getElementById(`dueDateId${task.title}`)
+        if(dueDateSpan && dueChecker === -1){
+            console.log(dueDateSpan)
+            dueDateSpan.classList.add("dueDatePassed")
 
+        }
+    })
 }
 
-export {uncheckedCircles,checkedCircle}
+export {uncheckedCircles,checkedCircle,checkDueDate}
