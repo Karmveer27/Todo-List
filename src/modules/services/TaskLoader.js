@@ -36,10 +36,16 @@ function loadTodayTasks(){
 function loadSevenDaysTask(){
     const sevenDayProject = new Project("SevenDays");
     const currentTimeStamp = date.getCurrentTime();
-    const nextSevenDayStamp = date.addDays(currentTimeStamp,7);
+    const nextSevenDayStamp = date.addDays(currentTimeStamp,8);
+    console.log(date.getFormattedDate(currentTimeStamp))
+    console.log(date.getFormattedDate(nextSevenDayStamp))
 
     allTasksProject.tasks.forEach(task => {
-        if(date.compareDates(nextSevenDayStamp,task.dueDate) === 1){
+        const checker1 = date.compareDates(currentTimeStamp,task.dueDate)
+        const checker2 = date.compareDates(nextSevenDayStamp,task.dueDate)
+        console.log(task.title)
+        console.log(checker1,checker2)
+        if(checker1 === -1 && checker2 === 1){
             sevenDayProject.addTask(task)
         }
     })
@@ -161,9 +167,9 @@ function removeTask(taskTitle){
 
 
 //Testing
-const task1 = new Task("Learn react","Next project needs to be with the MERN stack","2023-12-19","important");
-const task2 = new Task("Finish this Project","Complete CheckMate","2023-12-09","important");
-const task3 = new Task("Sleep More","Focus on 8 hours a sleep within the next week","2023-12-14","medium");
+const task1 = new Task("Learn react","Next project needs to be with the MERN stack","2024-02-28","important");
+const task2 = new Task("Finish this Project","Complete CheckMate","2023-12-31","important");
+const task3 = new Task("Sleep More","Focus on 8 hours a sleep within the next week","2024-12-14","medium");
 
 allTasksProject.addTask(task1);
 allTasksProject.addTask(task2);
