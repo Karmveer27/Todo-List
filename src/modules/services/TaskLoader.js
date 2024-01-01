@@ -71,7 +71,7 @@ function loadTaskContent(project,containerID){
         contentContainer.innerHTML = '';
         customContainer.innerHTML = '';
         const reversedTasks = [...project.tasks].reverse();
-        console.trace()
+        //console.trace()
         reversedTasks.forEach(task => {
             const htmlText =
                 `<div class="task-container"> 
@@ -171,11 +171,13 @@ function removeTask(taskTitle){
 //Testing
 const task1 = new Task("Learn react","Next project needs to be with the MERN stack","2024-02-28","important");
 const task2 = new Task("Finish this Project","Complete CheckMate","2023-12-31","important");
-const task3 = new Task("Sleep More","Focus on 8 hours a sleep within the next week","2024-12-14","medium");
+const task3 = new Task("Sleep More","Focus on 8 hours a sleep within the next week","2025-12-14","medium");
+const task4 = new Task("Exercise","Start jump roping 15 minutes a day",date.getFormattedDate(date.addDays(date.getCurrentTime(),5)),"minor");
 
 allTasksProject.addTask(task1);
 allTasksProject.addTask(task2);
 allTasksProject.addTask(task3);
+allTasksProject.addTask(task4)
 //console.log(allTasksProject)
 
 

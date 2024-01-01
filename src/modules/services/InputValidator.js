@@ -8,7 +8,7 @@ import {getTask} from "./TaskLoader";
 
 function checkProjectValid(projectName){
     const projectChecker = getProject(projectName)
-    if(projectChecker.length===0 && projectName !== undefined){
+    if(projectChecker.length===0 && projectName !== undefined && projectName === null){
         removeErrorProject();
         return true;
     }
@@ -20,8 +20,10 @@ function checkProjectValid(projectName){
     }
 }
 function checkTaskValid(taskName){
+    //console.log("Getting here")
+    //console.log(taskName)
    const task = getTask(taskName);
-   if(task === undefined && taskName !== undefined){
+   if(task === undefined && taskName !== undefined && taskName === null){
        removeErrorTask();
        return true;
    }else{
@@ -32,7 +34,7 @@ function checkTaskValid(taskName){
 }
 function checkEditTaskValid(taskName){
     const task = getTask(taskName);
-    if(task === undefined && taskName !== undefined){
+    if(task === undefined && taskName !== undefined && taskName === null){
         removeErrorEditTask();
         return true;
     }else{

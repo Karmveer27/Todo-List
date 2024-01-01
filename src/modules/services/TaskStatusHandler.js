@@ -41,7 +41,7 @@ function checkedCircle(id){
 }
 
 function checkDueDate(){
-    console.log("Checking due date")
+    //console.log("Checking due date")
     getAllTasks().tasks.forEach(task => {
         //console.log(task)
         const dueChecker = date.compareDates(task.dueDate,date.getCurrentTime())
