@@ -61,7 +61,6 @@ footer{
   //justify-content: center; // If flex direction is set to row, justify-content centres horizotnally and align items does vertically.
   align-items: center;
   // If flex direction is set to column, the axes changes and it becomes inversed
-
 }
 #content-title{
   background-color: $secondaryColour;
@@ -171,7 +170,7 @@ footer{
   display: none;
   flex-direction: column;
 }
-#add-task{
+#add-task,#edit-task{
   background-color: $secondaryColour;
   margin: 20px;
   padding: 10px;
@@ -188,11 +187,12 @@ footer{
   color: $green;
 }
 
-#projectForm{
+#projectForm,#edit-task,#editTitleOption{
   display: flex;
   flex-direction: column;
+  color: $secondaryTextColour
 }
-#projectButton{
+#projectButton,#formButton, #editTaskButton{
   width: 100px;
   align-self: center;
   margin-top: 15px;

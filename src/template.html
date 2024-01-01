@@ -84,10 +84,12 @@
 
                 <form id="add-task">
                     <div class="option-title">
-                        <h2>Add Task</h2>
+                        <h2 class = "formTitle">Add Task</h2>
                         <img class="cross">
                     </div>
+                    <label for="formTitle">Title</label>
                     <input type="text" id="formTitle" placeholder="Enter a title" class="inputText" />
+                    <label for="formDescription">Description</label>
                     <input type="text" id="formDescription" placeholder="Describe your task" class="inputText" />
 
                     <div>
@@ -95,16 +97,17 @@
                         <input type="date" id="formDate" name="formDate" class="inputText" >
 
                         <select id="formPriority" name="cars" class="inputText" >
-                            <option value="important">Important</option>
-                            <option value="standard">Standard</option>
-                            <option value="minor" selected>Minor</option>
+                            <option value="important" class="inputText">Important</option>
+                            <option value="standard" class="inputText">Standard</option>
+                            <option value="minor" selected class="inputText">Minor</option>
                         </select>
                     </div>
-                    <select id="formProject" name="cars" class="inputText" >
+                    <label for="formProject">Select Task's Project</label>
+                    <select id="formProject" name="formProject" class="inputText" >
                         <option value="none">None</option>
                     </select>
                     <h3 id="taskError">Task Name Not Available</h3>
-                    <button id="formButton" class="inputText">Click Me</button>
+                    <button id="formButton" class="inputText">Add Task</button>
                 </form>
 
             <form id="edit-task">
@@ -112,24 +115,26 @@
                     <h3 class="formTitle">Edit Task</h3>
                     <img class="cross">
                 </div>
-                <div>
+                <div id="editTitleOption">
                     <label for="setTitle">Title</label>
                     <input type="text" id="setTitle" name="setTitle" class="inputText"/>
+                    <label for="setDescription">Description</label>
+                    <input type="text" id="setDescription" placeholder="Describe your task" class="inputText" />
                 </div>
-                <input type="text" id="setDescription" placeholder="Describe your task" class="inputText" />
+
 
                 <div>
                     <label for="formDate"></label>
                     <input type="date" id="setDate" name="formDate" class="inputText">
 
-                    <select id="setPriority" name="cars"  class="inputText">
+                    <select id="setPriority"  class="inputText">
                         <option value="important" class="inputText">Important</option>
                         <option value="standard" class="inputText">Standard</option>
                         <option value="minor" selected class="inputText">Minor</option>
                     </select>
                 </div>
                 <h3 id="taskEditError">Task Name Not Available</h3>
-                <button id="editTaskButton" class="inputText">Confirm</button>
+                <button id="editTaskButton" class="inputText">Edit Task</button>
 
             </form>
 

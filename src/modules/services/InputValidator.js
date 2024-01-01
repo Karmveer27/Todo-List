@@ -75,4 +75,4 @@ function removeErrorEditTask(){
     document.getElementById("setTitle").classList.remove("errorBox")
 }
 
-export {checkProjectValid,checkTaskValid,checkEditTaskValid}
+export {checkProjectValid,checkTaskValid,checkEditTaskValid,removeErrorEditTask,removeErrorProject,removeErrorTask}
