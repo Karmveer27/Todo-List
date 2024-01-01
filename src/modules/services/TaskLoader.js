@@ -126,6 +126,7 @@ function addTask(task){
     }
     if(task instanceof Task){
         allTasksProject.addTask(task);
+        document.getElementById('add-task').reset(); // reset form
     }
 }
 function getTask(taskTitle){

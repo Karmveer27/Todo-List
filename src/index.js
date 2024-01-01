@@ -35,7 +35,6 @@ import {checkProjectValid} from "./modules/services/InputValidator";
 window.onload = () => {
     showAllTasks();
     loadProjects();
-    checkProjectValid();
 
 }
 

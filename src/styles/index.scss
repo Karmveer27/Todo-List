@@ -195,7 +195,7 @@ footer{
 #projectButton{
   width: 100px;
   align-self: center;
-  margin-top: 30px;
+  margin-top: 15px;
 }
 
 .unchecked-circle{
@@ -269,4 +269,16 @@ select{
 }
 .customProjects{
   margin-left: 10px;
+}
+
+#projectError, #taskError{
+  display: none;
+  //visibility: hidden;
+  position: relative;
+  color: indianred;
+}
+
+.errorBox{
+  border-color: red;
+  border-width: 3px;
 }

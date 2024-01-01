@@ -156,7 +156,6 @@ function customProjectButtons(){
 
 
 function reload(formProject){
-    document.getElementById('add-task').reset(); // reset form
     setFormDate(); // set form date
     switch (currentPage){
         case "AllTasks":
