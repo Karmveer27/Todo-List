@@ -70,7 +70,9 @@ function loadTaskContent(project,containerID){
     if(contentContainer && project.tasks !== undefined){
         contentContainer.innerHTML = '';
         customContainer.innerHTML = '';
-        project.tasks.reverse().forEach(task => {
+        const reversedTasks = [...project.tasks].reverse();
+        console.trace()
+        reversedTasks.forEach(task => {
             const htmlText =
                 `<div class="task-container"> 
                     <div class="task-img-div">
