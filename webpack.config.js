@@ -1,6 +1,19 @@
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+
+let plugins = [
+    new HtmlWebpackPlugin({
+        title: 'Webpack App',
+        filename: 'index.html',
+        template: 'src/template.html'
+    })
+];
+
+if (process.env.NODE_ENV === 'development') {
+    plugins.push(new BundleAnalyzerPlugin());
+}
+
 module.exports = {
     mode: 'development',
     entry: {
@@ -13,8 +26,8 @@ module.exports = {
         assetModuleFilename: '[name][ext]',
     },
     devtool: 'source-map',
-    devServer:{
-        static:{
+    devServer: {
+        static: {
             directory: path.resolve(__dirname,'dist')
         },
         port: 3000,
@@ -40,19 +53,10 @@ module.exports = {
                 }
             },
             {
-                test: /\.(png|svg|jpg|jpeg|gif)$/i, // i makes it case insenstiive
+                test: /\.(png|svg|jpg|jpeg|gif)$/i,
                 type: 'asset/resource',
             },
-
         ]
-
     },
-    plugins: [
-        new HtmlWebpackPlugin({
-            title: 'Webpack App',
-            filename: 'index.html',
-            template: 'src/template.html'
-        }),
-        new BundleAnalyzerPlugin(),
-    ]
-}
+    plugins: plugins
+};
