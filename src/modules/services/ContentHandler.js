@@ -13,6 +13,8 @@ import check from '/src/assets/check.png'
 import uncheckedCircle from '/src/assets/circle.png'
 import {checkDueDate, checkedCircle, uncheckedCircles} from "./TaskStatusHandler";
 import {dotEventListener} from "./TaskEditor";
+import whiteDots from "../../assets/white-dots.png";
+import circle from "../../assets/circle.png";
 
 let currentPage;
 function showAllTasks(){
@@ -175,6 +177,23 @@ function reload(formProject){
             break;
 
     }
+    document.querySelectorAll(".white-dots").forEach(dot => {
+        console.log("Getting to white dots in content handler")
+        let src = whiteDots;
+        console.log(src + " : Old src")
+        if(src.endsWith('/')){
+            src = src.slice(0,-1)
+        }
+        console.log(src + " : new src")
+        dot.src = src;
+    })
+    document.querySelectorAll(".unchecked-circle").forEach(c => {
+        let src = circle;
+        if(src.endsWith('/')){
+            src = src.slice(0,-1)
+        }
+        c.src = src;
+    })
     uncheckedCircles()
     dotEventListener();
     checkDueDate();
