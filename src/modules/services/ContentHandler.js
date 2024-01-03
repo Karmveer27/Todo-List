@@ -39,7 +39,8 @@ function showToday(){
     document.getElementById("important-content").style.display = "none";
     loadTodayTasks();
     uncheckedCircles();
-    dotEventListener()
+    dotEventListener();
+    updateImages();
     currentPage = "Today"
 }
 
@@ -51,7 +52,8 @@ function showSevenDays(){
     document.getElementById("important-content").style.display = "none";
     loadSevenDaysTask()
     uncheckedCircles();
-    dotEventListener()
+    dotEventListener();
+    updateImages();
     currentPage = "SevenDays"
 }
 
@@ -63,7 +65,8 @@ function showImportant(){
     document.getElementById("important-content").style.display = "flex";
     loadImportantTasks();
     uncheckedCircles();
-    dotEventListener()
+    dotEventListener();
+    updateImages();
     currentPage = "Important"
 }
 function showCustom(name){
@@ -74,7 +77,8 @@ function showCustom(name){
     document.getElementById("important-content").style.display = "none";
     document.getElementById("custom-content").style.display = "flex";
     uncheckedCircles();
-    dotEventListener()
+    dotEventListener();
+    updateImages();
     currentPage = "Custom"
 }
 
@@ -185,13 +189,13 @@ function reload(formProject){
 }
 function updateImages(){
     document.querySelectorAll(".white-dots").forEach(dot => {
-        console.log("Getting to white dots in content handler")
+        //console.log("Getting to white dots in content handler")
         let src = whiteDots;
-        console.log(src + " : Old src")
+        //console.log(src + " : Old src")
         if(src.endsWith('/')){
             src = src.slice(0,-1)
         }
-        console.log(src + " : new src")
+        //console.log(src + " : new src")
         dot.src = src;
     })
     document.querySelectorAll(".unchecked-circle").forEach(c => {
