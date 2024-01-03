@@ -89,7 +89,7 @@ function loadTaskContent(project,containerID){
                     <span class="task-title">${task.title} </span>
                     <span class="task-description">${task.description}</span>
                     <span class="task-priority">${task.priority}</span>
-                    <span id="ID:${project.name}${task.title}">
+                    <span id="DateID:${project.name}${task.title}">
                         ${task.getDay(task.dueDate)}/${task.getMonth(task.dueDate)}/${task.getYear(task.dueDate)}   
                     </span>
                 </div>

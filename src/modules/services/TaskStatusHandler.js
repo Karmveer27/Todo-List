@@ -46,7 +46,7 @@ function checkDueDate(project){
         //console.log(task)
         const dueChecker = date.compareDates(task.dueDate,date.getCurrentTime())
         //console.log(dueChecker)
-        const dueDateSpan = document.getElementById(`ID:${project.name}${task.title}`)
+        const dueDateSpan = document.getElementById(`DateID:${project.name}${task.title}`)
         if(dueDateSpan && dueChecker === -1){
             //console.log(dueDateSpan)
             dueDateSpan.classList.add("dueDatePassed")
