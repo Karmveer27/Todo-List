@@ -47,12 +47,16 @@ function checkDueDate(project){
         const dueChecker = date.compareDates(task.dueDate,date.getCurrentTime())
         //console.log(dueChecker)
         console.trace()
-        const dueDateSpan = document.getElementById(`DateID:${project.name}${task.title}`)
-        if(dueDateSpan && dueChecker === -1){
-            //console.log(dueDateSpan)
-            dueDateSpan.classList.add("dueDatePassed")
+        if(project !== undefined){
+            const dueDateSpan = document.getElementById(`DateID:${project.name}${task.title}`)
+            if(dueDateSpan && dueChecker === -1){
+                //console.log(dueDateSpan)
+                dueDateSpan.classList.add("dueDatePassed")
 
+            }
         }
+
+
     })
 }
 
