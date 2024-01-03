@@ -24,7 +24,7 @@ import gtihub from './assets/github.png'
 import linkedin from './assets/linkedin.png'
 import plus from './assets/plus.png'
 import whiteDots from './assets/white-dots.png'
-import circle from './assets/white-dots.png'
+import circle from './assets/circle.png'
 
 //Classes
 import Task from './modules/entities/Task'
@@ -58,8 +58,8 @@ document.getElementById('plus').src = plus;
 document.querySelectorAll(".white-dots").forEach(dot => {
     dot.src = whiteDots;
 })
-document.querySelectorAll(".unchecked-circle").forEach(circle => {
-    circle.src = circle;
+document.querySelectorAll(".unchecked-circle").forEach(c => {
+    c.src = circle;
 })
 
 document.getElementById("all-tasks-button").addEventListener('click',showAllTasks);
