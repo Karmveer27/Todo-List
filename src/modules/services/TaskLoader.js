@@ -30,21 +30,21 @@ function loadTodayTasks(){
             todayProject.addTask(task)
         }
     })
-    console.log(todayProject)
+    //console.log(todayProject)
     loadTaskContent(todayProject,"today-content")
 }
 function loadSevenDaysTask(){
     const sevenDayProject = new Project("SevenDays");
     const currentTimeStamp = date.getCurrentTime();
     const nextSevenDayStamp = date.addDays(currentTimeStamp,8);
-    console.log(date.getFormattedDate(currentTimeStamp))
-    console.log(date.getFormattedDate(nextSevenDayStamp))
+    //console.log(date.getFormattedDate(currentTimeStamp))
+    //console.log(date.getFormattedDate(nextSevenDayStamp))
 
     allTasksProject.tasks.forEach(task => {
         const checker1 = date.compareDates(currentTimeStamp,task.dueDate)
         const checker2 = date.compareDates(nextSevenDayStamp,task.dueDate)
-        console.log(task.title)
-        console.log(checker1,checker2)
+        //console.log(task.title)
+        //console.log(checker1,checker2)
         if(checker1 === -1 && checker2 === 1){
             sevenDayProject.addTask(task)
         }

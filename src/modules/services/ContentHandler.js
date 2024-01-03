@@ -27,6 +27,7 @@ function showAllTasks(){
     uncheckedCircles();
     setFormDate();
     dotEventListener()
+    updateImages();
     currentPage = "AllTasks"
 }
 
@@ -177,6 +178,12 @@ function reload(formProject){
             break;
 
     }
+
+    uncheckedCircles()
+    dotEventListener();
+    checkDueDate();
+}
+function updateImages(){
     document.querySelectorAll(".white-dots").forEach(dot => {
         console.log("Getting to white dots in content handler")
         let src = whiteDots;
@@ -194,9 +201,6 @@ function reload(formProject){
         }
         c.src = src;
     })
-    uncheckedCircles()
-    dotEventListener();
-    checkDueDate();
 }
 
 
