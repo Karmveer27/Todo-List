@@ -56,10 +56,18 @@ document.getElementById('github').src = gtihub;
 document.getElementById('linkedin').src = linkedin;
 document.getElementById('plus').src = plus;
 document.querySelectorAll(".white-dots").forEach(dot => {
-    dot.src = whiteDots;
+    let src = whiteDots;
+    if(src.endsWith('/')){
+        src = src.slice(0,-1)
+    }
+    dot.src = src;
 })
 document.querySelectorAll(".unchecked-circle").forEach(c => {
-    c.src = circle;
+    let src = circle;
+    if(src.endsWith('/')){
+        src = src.slice(0,-1)
+    }
+    c.src = src;
 })
 
 document.getElementById("all-tasks-button").addEventListener('click',showAllTasks);
