@@ -23,6 +23,9 @@ import menuEntry from './assets/menu-entry.png'
 import gtihub from './assets/github.png'
 import linkedin from './assets/linkedin.png'
 import plus from './assets/plus.png'
+import whiteDots from './assets/white-dots.png'
+import circle from './assets/white-dots.png'
+
 //Classes
 import Task from './modules/entities/Task'
 import Project from './modules/entities/Project'
@@ -52,6 +55,12 @@ document.getElementById('home-onclose').src = menuEntry;
 document.getElementById('github').src = gtihub;
 document.getElementById('linkedin').src = linkedin;
 document.getElementById('plus').src = plus;
+document.querySelectorAll(".white-dots").forEach(dot => {
+    dot.src = whiteDots;
+})
+document.querySelectorAll(".unchecked-circle").forEach(circle => {
+    circle.src = circle;
+})
 
 document.getElementById("all-tasks-button").addEventListener('click',showAllTasks);
 document.getElementById("today-button").addEventListener('click',showToday);
