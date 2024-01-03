@@ -56,10 +56,13 @@ document.getElementById('github').src = gtihub;
 document.getElementById('linkedin').src = linkedin;
 document.getElementById('plus').src = plus;
 document.querySelectorAll(".white-dots").forEach(dot => {
+    console.log("Getting to white dots")
     let src = whiteDots;
+    console.log(src + " : Old src")
     if(src.endsWith('/')){
         src = src.slice(0,-1)
     }
+    console.log(src + " : new src")
     dot.src = src;
 })
 document.querySelectorAll(".unchecked-circle").forEach(c => {
