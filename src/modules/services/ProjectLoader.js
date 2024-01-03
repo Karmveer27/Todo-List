@@ -5,6 +5,7 @@ const allProjects = [];
 
 
 function addProject(name,colour){
+    console.log("getting hewre")
     if(!checkProjectValid(name)){
         console.log("Not valid project ")
         return;
