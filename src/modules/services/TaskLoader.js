@@ -83,7 +83,7 @@ function loadTaskContent(project,containerID){
             const htmlText =
                 `<div class="task-container"> 
                     <div class="task-img-div">
-                        <img class="white-dots" id="dots-${task.title}" src=${whiteDots}/>
+                        <img class="white-dots" id="DotID:${project.name}${task.title}" src=${whiteDots}/>
                         <img class="unchecked-circle" id="circle-${task.title}" src=${circle}/>
                     </div>
                     <span class="task-title">${task.title} </span>

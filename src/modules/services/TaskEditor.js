@@ -23,6 +23,7 @@ function dotEventListener(){
 
     }
     const whiteDots = document.querySelectorAll(".white-dots");
+    console.log("Task editor 26")
     whiteDots.forEach(dot => {
         dot.addEventListener('mouseenter',handleMouseEnter);
         dot.addEventListener('mouseleave',handleMouseLeave);
