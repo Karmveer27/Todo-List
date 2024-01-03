@@ -185,12 +185,11 @@ function reload(formProject){
         case "Custom":
             loadCustomProjectTasks(formProject)
             break;
-
     }
 
     uncheckedCircles()
     dotEventListener();
-    checkDueDate();
+    updateImages();
 }
 function updateImages(){
     document.querySelectorAll(".white-dots").forEach(dot => {
