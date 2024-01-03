@@ -28,6 +28,7 @@ function showAllTasks(){
     setFormDate();
     dotEventListener()
     updateImages();
+    //checkDueDate();
     currentPage = "AllTasks"
 }
 
@@ -41,6 +42,7 @@ function showToday(){
     uncheckedCircles();
     dotEventListener();
     updateImages();
+    //checkDueDate();
     currentPage = "Today"
 }
 
@@ -54,6 +56,7 @@ function showSevenDays(){
     uncheckedCircles();
     dotEventListener();
     updateImages();
+    //checkDueDate();
     currentPage = "SevenDays"
 }
 
@@ -67,6 +70,7 @@ function showImportant(){
     uncheckedCircles();
     dotEventListener();
     updateImages();
+    //checkDueDate();
     currentPage = "Important"
 }
 function showCustom(name){
@@ -79,6 +83,7 @@ function showCustom(name){
     uncheckedCircles();
     dotEventListener();
     updateImages();
+    //checkDueDate();
     currentPage = "Custom"
 }
 

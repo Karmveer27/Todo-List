@@ -8,6 +8,7 @@ import task from "../entities/Task";
 import whiteDots from '/src/assets/white-dots.png'
 import blackDots from '/src/assets/black-dots.png'
 import {checkTaskValid} from "./InputValidator";
+import {checkDueDate} from "./TaskStatusHandler";
 
 
 const date = new Date();
@@ -20,6 +21,7 @@ function setFormDate(){
 }
 function loadAllTasks(){
     loadTaskContent(allTasksProject,"all-task-content")
+    checkDueDate(allTasksProject)
 
 }
 function loadTodayTasks(){
@@ -32,6 +34,7 @@ function loadTodayTasks(){
     })
     //console.log(todayProject)
     loadTaskContent(todayProject,"today-content")
+    checkDueDate(todayProject)
 }
 function loadSevenDaysTask(){
     const sevenDayProject = new Project("SevenDays");
@@ -50,16 +53,19 @@ function loadSevenDaysTask(){
         }
     })
     loadTaskContent(sevenDayProject,"seven-days-content")
+    checkDueDate(sevenDayProject)
 }
 function loadImportantTasks(){
     const importantTasks = new Project("ImportantTasks");
     allTasksProject.tasks.forEach(task => {
          if(task.priority === "important"){
-             console.log(task)
+             //console.log(task)
              importantTasks.addTask(task)
          }
     })
     loadTaskContent(importantTasks,"important-content");
+    checkDueDate(importantTasks)
+
 
 }
 
@@ -73,6 +79,7 @@ function loadTaskContent(project,containerID){
         const reversedTasks = [...project.tasks].reverse();
         //console.trace()
         reversedTasks.forEach(task => {
+            const strippedTitle = task.title.replace(/\s/g, '');
             const htmlText =
                 `<div class="task-container"> 
                     <div class="task-img-div">
@@ -82,7 +89,7 @@ function loadTaskContent(project,containerID){
                     <span class="task-title">${task.title} </span>
                     <span class="task-description">${task.description}</span>
                     <span class="task-priority">${task.priority}</span>
-                    <span id="dueDateId${task.title}">
+                    <span id="ID:${project.name}${task.title}">
                         ${task.getDay(task.dueDate)}/${task.getMonth(task.dueDate)}/${task.getYear(task.dueDate)}   
                     </span>
                 </div>
@@ -109,6 +116,7 @@ function loadCustomProjectTasks(projectName){
     if(project1){
         loadTaskContent(project1,"custom-content")
         showCustom(projectName);
+        checkDueDate(project1)
     }
 }
 

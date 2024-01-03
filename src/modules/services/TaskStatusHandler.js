@@ -40,13 +40,13 @@ function checkedCircle(id){
     reload();
 }
 
-function checkDueDate(){
+function checkDueDate(project){
     //console.log("Checking due date")
     getAllTasks().tasks.forEach(task => {
         //console.log(task)
         const dueChecker = date.compareDates(task.dueDate,date.getCurrentTime())
         //console.log(dueChecker)
-        const dueDateSpan = document.getElementById(`dueDateId${task.title}`)
+        const dueDateSpan = document.getElementById(`ID:${project.name}${task.title}`)
         if(dueDateSpan && dueChecker === -1){
             //console.log(dueDateSpan)
             dueDateSpan.classList.add("dueDatePassed")

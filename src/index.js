@@ -39,7 +39,7 @@ import {checkDueDate} from "./modules/services/TaskStatusHandler";
 window.onload = () => {
     showAllTasks();
     loadProjects();
-    checkDueDate();
+    //checkDueDate();
 
 }
 
