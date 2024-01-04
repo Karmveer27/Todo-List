@@ -14,7 +14,7 @@ function addProject(name,colour){
     allProjects.push(newProject);
     loadProjects()
 
-    const htmlDiv = `<option value=${name}>${name}</option>`;
+    const htmlDiv = `<option value=${name} class="inputText">${name}</option>`;
     document.getElementById("formProject").innerHTML += htmlDiv;
 }
 function loadProjects(){
