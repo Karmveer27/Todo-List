@@ -32,9 +32,13 @@ function checkTaskValid(taskName){
    }
 
 }
-function checkEditTaskValid(taskName){
+function checkEditTaskValid(taskName,oldTaskTitle){
     const task = getTask(taskName);
-    if(task === undefined && taskName !== undefined && taskName !== null){
+    if(oldTaskTitle === taskName && taskName !== null){
+        removeErrorEditTask();
+        return true;
+    }
+    else if(task === undefined && taskName !== undefined && taskName !== null){
         removeErrorEditTask();
         return true;
     }else{

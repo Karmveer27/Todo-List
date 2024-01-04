@@ -53,7 +53,7 @@ function enterEditMenu(id){
         function handleEditButton() {
             return function (e) {
                 e.preventDefault();
-                changeTaskInfo(task);
+                changeTaskInfo(task,taskTitles[1]);
             };
         }
         let old_element = document.getElementById("editTaskButton");
@@ -72,13 +72,13 @@ function exitEditMenu(id){
 
 }
 
-function changeTaskInfo(task){
+function changeTaskInfo(task,oldTaskTitle){
     console.log("entering changeTaskInfo")
     if(task){
 
         console.log(task)
         const title = document.getElementById("setTitle").value
-        if(!checkEditTaskValid(title)){
+        if(!checkEditTaskValid(title,oldTaskTitle)){
             return;
         }
         const description = document.getElementById("setDescription").value
