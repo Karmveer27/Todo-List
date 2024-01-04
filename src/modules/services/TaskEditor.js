@@ -23,7 +23,7 @@ function dotEventListener(){
 
     }
     const whiteDots = document.querySelectorAll(".white-dots");
-    console.log("Task editor 26")
+    //console.log("Task editor 26")
     whiteDots.forEach(dot => {
         dot.addEventListener('mouseenter',handleMouseEnter);
         dot.addEventListener('mouseleave',handleMouseLeave);
@@ -39,26 +39,31 @@ function setToWhiteDots(id){
 }
 function enterEditMenu(id){
     //console.log(id)
-    const taskTitle = id.substring(id.indexOf('-')+1)
-    const task = getTask(taskTitle);
-    document.getElementById("edit-task").style.visibility = 'visible'
-    document.getElementById("setTitle").value = task.title
-    document.getElementById("setDescription").value = task.description
-    document.getElementById("setDate").value = date.getFormattedDate(task.dueDate)
-    document.getElementById("setPriority").value = task.priority
-    function handleEditButton() {
-        return function (e) {
-            e.preventDefault();
-            changeTaskInfo(task);
-        };
+    //console.trace()
+    //console.log(id)
+    const taskTitles = id.split("-TaskTitle:")
+    //console.log(taskTitles[1])
+    const task = getTask(taskTitles[1]);
+    if(task){
+        document.getElementById("edit-task").style.visibility = 'visible'
+        document.getElementById("setTitle").value = task.title
+        document.getElementById("setDescription").value = task.description
+        document.getElementById("setDate").value = date.getFormattedDate(task.dueDate)
+        document.getElementById("setPriority").value = task.priority
+        function handleEditButton() {
+            return function (e) {
+                e.preventDefault();
+                changeTaskInfo(task);
+            };
+        }
+        let old_element = document.getElementById("editTaskButton");
+        let new_element = old_element.cloneNode(true);
+        old_element.parentNode.replaceChild(new_element, old_element);
+        new_element.addEventListener('click', handleEditButton() );
     }
-
-    let old_element = document.getElementById("editTaskButton");
-    let new_element = old_element.cloneNode(true);
-    old_element.parentNode.replaceChild(new_element, old_element);
-    new_element.addEventListener('click', handleEditButton() );
-
-
+    else{
+        console.log("Task not found")
+    }
 }
 
 function exitEditMenu(id){
